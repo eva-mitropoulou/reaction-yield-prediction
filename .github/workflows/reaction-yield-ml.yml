@@ -1,0 +1,52 @@
+name: Reaction Yield ML
+
+on:
+  push:
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "tests/**"
+      - "data/**"
+      - "reports/**"
+      - "docs/**"
+      - "notebooks/**"
+      - "Makefile"
+      - "pyproject.toml"
+      - "requirements.txt"
+      - ".github/workflows/reaction-yield-ml.yml"
+  pull_request:
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "tests/**"
+      - "data/**"
+      - "reports/**"
+      - "docs/**"
+      - "notebooks/**"
+      - "Makefile"
+      - "pyproject.toml"
+      - "requirements.txt"
+      - ".github/workflows/reaction-yield-ml.yml"
+
+jobs:
+  reproduce-small-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+
+      - name: Reproduce small fixture workflow
+        run: make reproduce-small PYTHON=python
+
+      - name: Run tests
+        run: make test PYTHON=python

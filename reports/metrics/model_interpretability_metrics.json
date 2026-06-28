@@ -1,0 +1,197 @@
+{
+  "held_out_component_failure_summary": {
+    "group_column": "component_additive",
+    "mae": 10.7433,
+    "notes": "Held-out component values are not listed.",
+    "split_name": "grouped_high_cardinality_component",
+    "test_size": 900
+  },
+  "high_error_component_groups_anonymized": [
+    {
+      "component_anonymized_id": "ligand_dee2800b80",
+      "component_role": "component_ligand",
+      "count": 225,
+      "mae": 11.3678
+    },
+    {
+      "component_anonymized_id": "ligand_7508b2af59",
+      "component_role": "component_ligand",
+      "count": 225,
+      "mae": 11.1819
+    },
+    {
+      "component_anonymized_id": "ligand_b166d6f259",
+      "component_role": "component_ligand",
+      "count": 225,
+      "mae": 10.8587
+    },
+    {
+      "component_anonymized_id": "ligand_8ee9de8b39",
+      "component_role": "component_ligand",
+      "count": 225,
+      "mae": 9.5648
+    },
+    {
+      "component_anonymized_id": "additive_c10adb0cb7",
+      "component_role": "component_additive",
+      "count": 180,
+      "mae": 15.4049
+    },
+    {
+      "component_anonymized_id": "additive_e86da383ac",
+      "component_role": "component_additive",
+      "count": 180,
+      "mae": 11.0892
+    },
+    {
+      "component_anonymized_id": "additive_a56a3c7b48",
+      "component_role": "component_additive",
+      "count": 180,
+      "mae": 9.9469
+    },
+    {
+      "component_anonymized_id": "additive_a25949efaf",
+      "component_role": "component_additive",
+      "count": 180,
+      "mae": 9.0024
+    },
+    {
+      "component_anonymized_id": "additive_1f6bc9f8aa",
+      "component_role": "component_additive",
+      "count": 180,
+      "mae": 8.273
+    },
+    {
+      "component_anonymized_id": "base_d2cff0f2af",
+      "component_role": "component_base",
+      "count": 300,
+      "mae": 14.162
+    },
+    {
+      "component_anonymized_id": "base_3154deb817",
+      "component_role": "component_base",
+      "count": 300,
+      "mae": 9.589
+    },
+    {
+      "component_anonymized_id": "base_4335114ad9",
+      "component_role": "component_base",
+      "count": 300,
+      "mae": 8.4788
+    },
+    {
+      "component_anonymized_id": "aryl_halide_6099dcc868",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 16.7485
+    },
+    {
+      "component_anonymized_id": "aryl_halide_d02f24d064",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 16.0004
+    },
+    {
+      "component_anonymized_id": "aryl_halide_72944383cf",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 15.3362
+    },
+    {
+      "component_anonymized_id": "aryl_halide_cfe78b6b54",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 14.7943
+    },
+    {
+      "component_anonymized_id": "aryl_halide_c7e36c2f52",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 14.6048
+    },
+    {
+      "component_anonymized_id": "aryl_halide_579111e038",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 14.1797
+    },
+    {
+      "component_anonymized_id": "aryl_halide_0298908ca6",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 13.5124
+    },
+    {
+      "component_anonymized_id": "aryl_halide_a64d99ce47",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 11.3984
+    },
+    {
+      "component_anonymized_id": "aryl_halide_32fe23ef54",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 9.8499
+    },
+    {
+      "component_anonymized_id": "aryl_halide_68c487de06",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 9.4483
+    }
+  ],
+  "limitations": [
+    "Importances describe model behavior, not chemical causality.",
+    "One-hot categorical features cannot infer molecular mechanism.",
+    "High-error component groups are anonymized in public reports."
+  ],
+  "permutation_importance_by_component_role": [
+    {
+      "component_role": "component_ligand",
+      "importance_mean": 0.3295,
+      "importance_std": 0.0275
+    },
+    {
+      "component_role": "component_additive",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "component_role": "component_base",
+      "importance_mean": 0.1705,
+      "importance_std": 0.0104
+    },
+    {
+      "component_role": "component_aryl_halide",
+      "importance_mean": 1.1283,
+      "importance_std": 0.0388
+    }
+  ],
+  "primary_split": "grouped_high_cardinality_component",
+  "quality_gates": {
+    "component_contribution_summaries_included": true,
+    "error_analysis_by_component_included": true,
+    "feature_importance_for_tree_model_included": true,
+    "held_out_component_failure_cases_summarized": true,
+    "no_causality_overclaim": true,
+    "permutation_importance_included": true
+  },
+  "tree_importance_by_component_role": [
+    {
+      "component_role": "component_aryl_halide",
+      "tree_importance": 0.5474
+    },
+    {
+      "component_role": "component_additive",
+      "tree_importance": 0.2372
+    },
+    {
+      "component_role": "component_ligand",
+      "tree_importance": 0.1277
+    },
+    {
+      "component_role": "component_base",
+      "tree_importance": 0.0877
+    }
+  ]
+}

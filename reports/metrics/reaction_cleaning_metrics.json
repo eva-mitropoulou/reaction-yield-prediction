@@ -1,0 +1,24 @@
+{
+  "clean_row_count": 3955,
+  "component_columns": [
+    "component_ligand",
+    "component_additive",
+    "component_base",
+    "component_aryl_halide"
+  ],
+  "duplicate_records_removed": 0,
+  "impossible_yield_removed": 0,
+  "limitations": [
+    "Component strings are standardized as categorical labels; missing chemistry is not invented.",
+    "No component SMILES are available in the selected workbook, so molecular descriptors are skipped unless external structures are supplied.",
+    "Rows outside 0-100 percent yield are excluded rather than clipped."
+  ],
+  "missing_structure_features": true,
+  "missing_target_removed": 0,
+  "raw_row_count": 3955,
+  "rows_before_filtering": 3955,
+  "source_mode": "public_benchmark",
+  "target_column": "yield_percent",
+  "yield_max": 99.99999,
+  "yield_min": 0.0
+}

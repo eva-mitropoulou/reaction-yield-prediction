@@ -1,0 +1,281 @@
+{
+  "limitations": [
+    "Tree-ensemble variance is a heuristic uncertainty proxy.",
+    "Conformal intervals are retrospective and depend on calibration residuals from the available public records.",
+    "Uncertainty is evaluated against actual errors but is not claimed to be perfect."
+  ],
+  "method": "random_forest_tree_ensemble_std_plus_split_conformal_interval",
+  "primary_split": "grouped_high_cardinality_component",
+  "quality_gates": {
+    "domain_distance_proxy_reported": true,
+    "empirical_coverage_reported": true,
+    "low_confidence_predictions_flagged": true,
+    "uncertainty_evaluated_against_actual_errors": true
+  },
+  "split_summaries": {
+    "grouped_high_cardinality_component": {
+      "bins": [
+        {
+          "bin": "(0.999, 180.8]",
+          "count": 180,
+          "mean_abs_error": 3.0892,
+          "mean_uncertainty": 3.0931
+        },
+        {
+          "bin": "(180.8, 360.6]",
+          "count": 180,
+          "mean_abs_error": 6.6543,
+          "mean_uncertainty": 5.5011
+        },
+        {
+          "bin": "(360.6, 540.4]",
+          "count": 180,
+          "mean_abs_error": 10.9207,
+          "mean_uncertainty": 6.7735
+        },
+        {
+          "bin": "(540.4, 720.2]",
+          "count": 180,
+          "mean_abs_error": 13.0663,
+          "mean_uncertainty": 8.4413
+        },
+        {
+          "bin": "(720.2, 900.0]",
+          "count": 180,
+          "mean_abs_error": 19.9858,
+          "mean_uncertainty": 11.8254
+        }
+      ],
+      "empirical_coverage_90": 0.7978,
+      "in_domain_mae": null,
+      "interval_half_width_90": 18.4343,
+      "low_confidence_fraction": 0.2,
+      "mean_abs_error": 10.7433,
+      "mean_uncertainty": 7.1269,
+      "out_of_training_component_fraction": 1.0,
+      "out_of_training_component_mae": 10.7433,
+      "spearman_abs_error_vs_uncertainty": 0.6296,
+      "test_size": 900
+    },
+    "out_of_additive": {
+      "bins": [
+        {
+          "bin": "(0.999, 180.8]",
+          "count": 180,
+          "mean_abs_error": 3.0892,
+          "mean_uncertainty": 3.0931
+        },
+        {
+          "bin": "(180.8, 360.6]",
+          "count": 180,
+          "mean_abs_error": 6.6543,
+          "mean_uncertainty": 5.5011
+        },
+        {
+          "bin": "(360.6, 540.4]",
+          "count": 180,
+          "mean_abs_error": 10.9207,
+          "mean_uncertainty": 6.7735
+        },
+        {
+          "bin": "(540.4, 720.2]",
+          "count": 180,
+          "mean_abs_error": 13.0663,
+          "mean_uncertainty": 8.4413
+        },
+        {
+          "bin": "(720.2, 900.0]",
+          "count": 180,
+          "mean_abs_error": 19.9858,
+          "mean_uncertainty": 11.8254
+        }
+      ],
+      "empirical_coverage_90": 0.7978,
+      "in_domain_mae": null,
+      "interval_half_width_90": 18.4343,
+      "low_confidence_fraction": 0.2,
+      "mean_abs_error": 10.7433,
+      "mean_uncertainty": 7.1269,
+      "out_of_training_component_fraction": 1.0,
+      "out_of_training_component_mae": 10.7433,
+      "spearman_abs_error_vs_uncertainty": 0.6296,
+      "test_size": 900
+    },
+    "out_of_base": {
+      "bins": [
+        {
+          "bin": "(0.999, 264.2]",
+          "count": 264,
+          "mean_abs_error": 5.5274,
+          "mean_uncertainty": 6.3238
+        },
+        {
+          "bin": "(264.2, 527.4]",
+          "count": 263,
+          "mean_abs_error": 7.2679,
+          "mean_uncertainty": 9.8651
+        },
+        {
+          "bin": "(527.4, 790.6]",
+          "count": 263,
+          "mean_abs_error": 9.3693,
+          "mean_uncertainty": 12.1012
+        },
+        {
+          "bin": "(790.6, 1053.8]",
+          "count": 263,
+          "mean_abs_error": 10.2627,
+          "mean_uncertainty": 15.1391
+        },
+        {
+          "bin": "(1053.8, 1317.0]",
+          "count": 264,
+          "mean_abs_error": 15.0623,
+          "mean_uncertainty": 23.1216
+        }
+      ],
+      "empirical_coverage_90": 0.8808,
+      "in_domain_mae": null,
+      "interval_half_width_90": 19.9488,
+      "low_confidence_fraction": 0.2005,
+      "mean_abs_error": 9.4991,
+      "mean_uncertainty": 13.3123,
+      "out_of_training_component_fraction": 1.0,
+      "out_of_training_component_mae": 9.4991,
+      "spearman_abs_error_vs_uncertainty": 0.3515,
+      "test_size": 1317
+    },
+    "out_of_ligand": {
+      "bins": [
+        {
+          "bin": "(0.999, 198.6]",
+          "count": 198,
+          "mean_abs_error": 4.1594,
+          "mean_uncertainty": 6.2563
+        },
+        {
+          "bin": "(198.6, 396.2]",
+          "count": 198,
+          "mean_abs_error": 6.967,
+          "mean_uncertainty": 10.7132
+        },
+        {
+          "bin": "(396.2, 593.8]",
+          "count": 197,
+          "mean_abs_error": 11.6393,
+          "mean_uncertainty": 13.6617
+        },
+        {
+          "bin": "(593.8, 791.4]",
+          "count": 198,
+          "mean_abs_error": 14.519,
+          "mean_uncertainty": 15.7461
+        },
+        {
+          "bin": "(791.4, 989.0]",
+          "count": 198,
+          "mean_abs_error": 16.5472,
+          "mean_uncertainty": 19.9364
+        }
+      ],
+      "empirical_coverage_90": 0.8332,
+      "in_domain_mae": null,
+      "interval_half_width_90": 19.4147,
+      "low_confidence_fraction": 0.2002,
+      "mean_abs_error": 10.7655,
+      "mean_uncertainty": 13.2623,
+      "out_of_training_component_fraction": 1.0,
+      "out_of_training_component_mae": 10.7655,
+      "spearman_abs_error_vs_uncertainty": 0.5376,
+      "test_size": 989
+    },
+    "out_of_substrate": {
+      "bins": [
+        {
+          "bin": "(0.999, 159.0]",
+          "count": 159,
+          "mean_abs_error": 7.0187,
+          "mean_uncertainty": 8.1804
+        },
+        {
+          "bin": "(159.0, 317.0]",
+          "count": 158,
+          "mean_abs_error": 11.0461,
+          "mean_uncertainty": 11.8954
+        },
+        {
+          "bin": "(317.0, 475.0]",
+          "count": 158,
+          "mean_abs_error": 15.8056,
+          "mean_uncertainty": 14.4272
+        },
+        {
+          "bin": "(475.0, 633.0]",
+          "count": 158,
+          "mean_abs_error": 19.617,
+          "mean_uncertainty": 17.1239
+        },
+        {
+          "bin": "(633.0, 791.0]",
+          "count": 158,
+          "mean_abs_error": 24.059,
+          "mean_uncertainty": 20.173
+        }
+      ],
+      "empirical_coverage_90": 0.6941,
+      "in_domain_mae": null,
+      "interval_half_width_90": 19.6064,
+      "low_confidence_fraction": 0.2035,
+      "mean_abs_error": 15.4985,
+      "mean_uncertainty": 14.3522,
+      "out_of_training_component_fraction": 1.0,
+      "out_of_training_component_mae": 15.4985,
+      "spearman_abs_error_vs_uncertainty": 0.4564,
+      "test_size": 791
+    },
+    "random_split": {
+      "bins": [
+        {
+          "bin": "(0.999, 159.0]",
+          "count": 159,
+          "mean_abs_error": 4.8369,
+          "mean_uncertainty": 5.636
+        },
+        {
+          "bin": "(159.0, 317.0]",
+          "count": 158,
+          "mean_abs_error": 7.3731,
+          "mean_uncertainty": 8.8793
+        },
+        {
+          "bin": "(317.0, 475.0]",
+          "count": 158,
+          "mean_abs_error": 9.9331,
+          "mean_uncertainty": 10.6583
+        },
+        {
+          "bin": "(475.0, 633.0]",
+          "count": 158,
+          "mean_abs_error": 10.1572,
+          "mean_uncertainty": 12.5485
+        },
+        {
+          "bin": "(633.0, 791.0]",
+          "count": 158,
+          "mean_abs_error": 12.4776,
+          "mean_uncertainty": 17.2699
+        }
+      ],
+      "empirical_coverage_90": 0.9115,
+      "in_domain_mae": 8.9503,
+      "interval_half_width_90": 19.6536,
+      "low_confidence_fraction": 0.201,
+      "mean_abs_error": 8.9503,
+      "mean_uncertainty": 10.9916,
+      "out_of_training_component_fraction": 0.0,
+      "out_of_training_component_mae": null,
+      "spearman_abs_error_vs_uncertainty": 0.3613,
+      "test_size": 791
+    }
+  }
+}

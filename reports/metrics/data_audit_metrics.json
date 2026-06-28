@@ -1,0 +1,46 @@
+{
+  "categorical_cardinalities": {
+    "Additive": 22,
+    "Aryl halide": 15,
+    "Base": 3,
+    "Ligand": 4
+  },
+  "component_column_availability": {
+    "Additive": true,
+    "Aryl halide": true,
+    "Base": true,
+    "Ligand": true
+  },
+  "duplicate_row_count": 0,
+  "invalid_component_identifier_counts": {
+    "Additive": 0,
+    "Aryl halide": 0,
+    "Base": 0,
+    "Ligand": 0
+  },
+  "limitations": [
+    "Audit reports aggregate counts only.",
+    "Invalid component identifiers are string-presence checks, not chemical-validity checks."
+  ],
+  "missing_component_counts": {
+    "Additive": 0,
+    "Aryl halide": 0,
+    "Base": 0,
+    "Ligand": 0
+  },
+  "missing_target_count": 0,
+  "raw_column_count": 5,
+  "raw_columns": [
+    "Ligand",
+    "Additive",
+    "Base",
+    "Aryl halide",
+    "Output"
+  ],
+  "raw_row_count": 3955,
+  "source_mode": "public_benchmark",
+  "target_max": 100.0,
+  "target_mean": 33.0853,
+  "target_min": 0.0,
+  "trainable_row_count": 3955
+}

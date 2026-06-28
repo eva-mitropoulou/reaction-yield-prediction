@@ -1,0 +1,38 @@
+{
+  "feature_families": {
+    "advanced_reaction_embeddings": {
+      "reason": "DRFP/rxnfp graph embeddings are optional and not required for the safe benchmark.",
+      "status": "skipped_optional_dependencies"
+    },
+    "categorical_onehot": {
+      "component_columns": [
+        "component_ligand",
+        "component_additive",
+        "component_base",
+        "component_aryl_halide"
+      ],
+      "feature_count": 44,
+      "row_count": 3955,
+      "status": "built"
+    },
+    "morgan_fingerprints": {
+      "reason": "Selected workbook provides component labels but no component SMILES.",
+      "status": "skipped_no_smiles_columns"
+    },
+    "rdkit_descriptors": {
+      "reason": "Selected workbook provides component labels but no component SMILES.",
+      "status": "skipped_no_smiles_columns"
+    }
+  },
+  "outputs": {
+    "encoder": "data/processed/features/categorical_onehot_encoder.joblib",
+    "index": "data/processed/features/feature_index.csv",
+    "matrix": "data/processed/features/categorical_onehot.npz"
+  },
+  "quality_gates": {
+    "feature_rows_align_clean_rows": true,
+    "missing_structures_handled_explicitly": true,
+    "no_target_leakage_in_features": true,
+    "no_yield_derived_columns_used": true
+  }
+}

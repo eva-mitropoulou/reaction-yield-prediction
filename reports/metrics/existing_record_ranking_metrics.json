@@ -1,0 +1,25 @@
+{
+  "cross_validation_folds": 5,
+  "domain_warning_count": 0,
+  "limitations": [
+    "Ranking is based on out-of-fold predictions for existing public records only.",
+    "The table omits component labels to avoid recipe-style public output.",
+    "Scores are decision-support diagnostics for retrospective analysis, not lab-ready conditions."
+  ],
+  "median_model_agreement_std": 2.9629,
+  "models_used": [
+    "ridge",
+    "random_forest",
+    "gradient_boosting"
+  ],
+  "quality_gates": {
+    "domain_warning_included": true,
+    "limitations_included": true,
+    "no_lab_ready_claim": true,
+    "ranking_contains_existing_records_only": true,
+    "uncertainty_or_confidence_included": true
+  },
+  "ranking_rows_match_clean_rows": true,
+  "row_count": 3955,
+  "top_rank_predicted_yield_percent": 85.7931
+}

@@ -1,0 +1,18 @@
+{
+  "repo": "reaction-yield-prediction",
+  "branch": "portfolio-hardening-final",
+  "status": "pass",
+  "fixes": [
+    "synthesis-aware wording replaced with public HTE component-label scope",
+    "model card metrics reformatted as Markdown bullets",
+    "structure-aware extension note added as future work",
+    "existing-record ranking wording clarified"
+  ],
+  "checks": {
+    "make_reproduce_small_temp_copy": "pass",
+    "make_test_after_reproduce_small_temp_copy": "pass_8_tests",
+    "public_claim_scan": "pass",
+    "git_diff_check": "pass"
+  },
+  "blockers": []
+}

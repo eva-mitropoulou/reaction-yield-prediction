@@ -4,9 +4,12 @@ __pycache__/
 *.egg-info/
 
 # Downloaded public source data; use make data to reproduce.
+data/raw/
 data/raw/*.xlsx
+data/external/
 
 # Regenerated intermediates and fitted artifacts.
+data/processed/
 data/processed/features/*.npz
 data/processed/features/*.joblib
 data/processed/models/*.joblib
@@ -15,3 +18,5 @@ data/processed/uncertainty/*.csv
 data/processed/active_learning_curves.csv
 data/processed/active_learning_summary.csv
 reports/ranked_existing_reaction_records.csv
+reports/run_log.md
+reports/run_state.json

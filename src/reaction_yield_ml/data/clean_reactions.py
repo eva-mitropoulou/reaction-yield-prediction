@@ -84,7 +84,7 @@ def clean_reactions(use_fixture: bool = False) -> tuple[pd.DataFrame, dict[str, 
 - Missing component values are explicitly labeled.
 - Duplicate exact component-target records are removed.
 
-## Limitations
+## Interpretation Context
 
 """ + "\n".join(f"- {item}" for item in metrics["limitations"])
     write_markdown(REPORTS_DIR / "reaction_cleaning_report.md", report)
@@ -110,7 +110,7 @@ def main(use_fixture: bool = False) -> dict[str, Any]:
         ],
         failures=[] if status == "PASS" else ["clean dataset is small"],
         repairs=[],
-        limitations=metrics["limitations"],
+        notes=metrics["limitations"],
         extra={"clean_row_count": metrics["clean_row_count"]},
     )
     print(f"reaction_cleaning_status: {status}")

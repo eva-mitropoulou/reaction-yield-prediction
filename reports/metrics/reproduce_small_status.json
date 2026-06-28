@@ -1,5 +1,5 @@
 {
-  "note": "Small synthetic fixture workflow completed; not a benchmark result.",
+  "note": "Small synthetic fixture workflow completed for code-path checks.",
   "source_mode": "fixture",
   "status": "PASS"
 }

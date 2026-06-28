@@ -129,7 +129,7 @@ def build_features(use_fixture: bool = False) -> dict[str, Any]:
 - Feature rows align with cleaned rows: {metadata['quality_gates']['feature_rows_align_clean_rows']}
 - Missing structures handled explicitly: {metadata['quality_gates']['missing_structures_handled_explicitly']}
 
-## Limitations
+## Interpretation Context
 
 - The selected public workbook contains component labels, not component structures.
 - Structure-based featurization is therefore limited in this run and is marked as skipped rather than imputed.
@@ -155,7 +155,7 @@ def main(use_fixture: bool = False) -> dict[str, Any]:
         checks=list(gates.keys()),
         failures=[] if status == "PASS" else [key for key, value in gates.items() if not value],
         repairs=[],
-        limitations=[
+        notes=[
             "Molecular descriptors and fingerprints skipped because component SMILES are not present.",
             "Categorical baseline is the primary feature family for this workbook.",
         ],

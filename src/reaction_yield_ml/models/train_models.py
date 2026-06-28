@@ -314,7 +314,7 @@ def main(use_fixture: bool = False) -> dict[str, Any]:
         checks=list(gates.keys()),
         failures=[] if status == "PASS" else [key for key, value in gates.items() if not value],
         repairs=[],
-        limitations=["Categorical component labels are the primary predictors in this public workbook."],
+        notes=["Categorical component labels are the primary predictors in this public workbook."],
         extra={
             "best_model": metrics["best_model"],
             "primary_selection_split": metrics["primary_selection_split"],

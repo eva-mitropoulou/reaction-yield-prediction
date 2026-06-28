@@ -210,7 +210,7 @@ def main(use_fixture: bool = False) -> dict[str, Any]:
         checks=list(gates.keys()),
         failures=[] if status == "PASS" else [key for key, value in gates.items() if not value],
         repairs=[],
-        limitations=["Small grouped splits are flagged when applicable.", "Held-out group values are not printed."],
+        notes=["Small grouped splits are flagged when applicable.", "Held-out group values are not printed."],
         extra={"valid_splits": metrics["valid_splits"]},
     )
     print(f"validation_design_status: {status}")

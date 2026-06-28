@@ -4,10 +4,10 @@
     "active_learning_existing_records_only": true,
     "ci_workflow_exists": true,
     "dataset_source_and_license_documented": true,
-    "limitations_section_exists": true,
+    "existing_record_scope_documented": true,
+    "interpretation_context_section_exists": true,
     "mean_baseline_included": true,
     "metrics_saved": true,
-        "existing_record_scope_documented": true,
     "no_raw_row_dumps_in_reports": true,
     "no_unsupported_claims": true,
     "no_wet_lab_protocol_instructions": true,
@@ -17,10 +17,10 @@
     "reproduce_small_works": true,
     "tests_pass": true
   },
-  "remaining_limitations": [
+  "manual_review_notes": [
     "Manual source-license review is still recommended before redistributing the raw workbook.",
-        "Keep public wording focused on the current categorical component-based benchmark."
+    "Keep public wording focused on the current categorical component-based benchmark."
   ],
-  "source_mode": "public_benchmark",
+  "source_mode": "fixture",
   "status": "PASS"
 }

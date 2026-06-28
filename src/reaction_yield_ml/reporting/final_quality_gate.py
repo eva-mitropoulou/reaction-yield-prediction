@@ -91,7 +91,7 @@ def run_quality_gate() -> dict[str, Any]:
         ),
         "active_learning_existing_records_only": active.get("quality_gates", {}).get("selected_records_existing_only") is True,
         "ranking_clearly_retrospective": ranking.get("quality_gates", {}).get("ranking_contains_existing_records_only") is True,
-        "limitations_section_exists": "## 11. Limitations" in (REPORTS_DIR / "final_project_report.md").read_text(encoding="utf-8"),
+        "interpretation_context_section_exists": "## 11. Interpretation Context" in (REPORTS_DIR / "final_project_report.md").read_text(encoding="utf-8"),
         "reproduce_small_works": reproduce_marker.get("status") == "PASS",
         "tests_pass": pytest_marker.get("status") == "PASS",
         "readme_exists": _file_exists("README.md"),
@@ -104,7 +104,7 @@ def run_quality_gate() -> dict[str, Any]:
         "checks": checks,
         "banned_claim_hits": banned_scan["banned_claim_hits"],
         "source_mode": dataset.get("source_mode"),
-        "remaining_limitations": [
+        "manual_review_notes": [
             "Manual source-license review is still recommended before redistributing the raw workbook.",
             "Keep public wording focused on the current categorical component-based benchmark.",
         ],
@@ -113,7 +113,7 @@ def run_quality_gate() -> dict[str, Any]:
     report = "# Final Project Check Report\n\n" + "\n".join(
         f"- {key}: {value}" for key, value in checks.items()
     ) + f"\n\n## Status\n\n{status}\n\n## Remaining Manual Review\n\n" + "\n".join(
-        f"- {item}" for item in payload["remaining_limitations"]
+        f"- {item}" for item in payload["manual_review_notes"]
     )
     write_markdown(REPORTS_DIR / "final_quality_gate_report.md", report)
     update_run_state(
@@ -123,7 +123,7 @@ def run_quality_gate() -> dict[str, Any]:
         checks=list(checks.keys()),
         failures=[] if status == "PASS" else [key for key, value in checks.items() if not value],
         repairs=[],
-        limitations=payload["remaining_limitations"],
+        notes=payload["manual_review_notes"],
         extra={"source_mode": dataset.get("source_mode")},
     )
     return payload

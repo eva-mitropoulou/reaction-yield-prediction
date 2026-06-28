@@ -75,7 +75,7 @@ def build_final_report() -> dict[str, Any]:
             "retrospective public-data benchmark",
             "existing-record ranking",
             "component-label modeling",
-            "existing-record ranking only",
+            "existing-record ranking",
         ],
     }
     write_json(METRICS_DIR / "final_summary.json", final_summary)
@@ -85,7 +85,7 @@ def build_final_report() -> dict[str, Any]:
 
 Reaction Yield Prediction from Public HTE Component Labels is a retrospective public-data benchmark for reaction-yield modeling. It covers data curation, categorical component featurization, leakage-aware validation, uncertainty-aware prioritization, active-learning simulation, and existing-record ranking.
 
-Project frame: public HTE component-label modeling, retrospective validation, and existing-record ranking.
+Project role: public HTE component-label modeling, retrospective validation, and existing-record ranking.
 
 ## 2. Why Reaction-Yield Prediction Matters
 
@@ -145,7 +145,7 @@ The active-learning simulation is a budgeted selection workflow over existing pu
 
 The ranking table contains existing records. It includes predicted yield, confidence/model-agreement diagnostics, domain warnings, and component-diversity score.
 
-## 11. Limitations
+## 11. Interpretation Context
 
 - Component structures are unavailable in the selected workbook.
 - Categorical features support component-label benchmarking.
@@ -204,7 +204,7 @@ def _write_cards(summary: dict[str, Any]) -> None:
 
 Retrospective public-data benchmark for reaction-yield modeling and existing-record ranking.
 
-## Project Frame
+## Project Role
 
 - Retrospective public-data benchmark.
 - Existing-record ranking and uncertainty diagnostics.
@@ -228,7 +228,7 @@ Retrospective public-data benchmark for reaction-yield modeling and existing-rec
 
 {metric_lines}
 
-## Limitations
+## Interpretation Context
 
 The model uses categorical component labels because the selected workbook provides labels rather than component structures. Interpretability outputs describe model behavior for this component-label benchmark.
 """
@@ -249,7 +249,7 @@ def main() -> dict[str, Any]:
         checks=["final report sections written", "safe-scope phrases included", "model and data cards written"],
         failures=[] if summary.get("best_model") else ["model summary missing"],
         repairs=[],
-        limitations=["Final report inherits dataset and categorical-feature limitations."],
+        notes=["Final report inherits dataset and categorical-feature limitations."],
         extra={"best_model": summary.get("best_model")},
     )
     print("final_report_status: PASS" if summary.get("best_model") else "final_report_status: DEGRADED")

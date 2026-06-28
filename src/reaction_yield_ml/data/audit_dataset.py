@@ -88,7 +88,7 @@ def write_audit_outputs(metrics: dict[str, Any]) -> None:
         for col, available in metrics["component_column_availability"].items()
     ) + """
 
-## Limitations
+## Interpretation Context
 
 """ + "\n".join(f"- {item}" for item in metrics["limitations"])
     write_markdown(REPORTS_DIR / "data_audit_report.md", report)
@@ -110,7 +110,7 @@ def main(use_fixture: bool = False) -> dict[str, Any]:
         ],
         failures=[] if status == "PASS" else ["trainable row count is small"],
         repairs=[],
-        limitations=metrics["limitations"],
+        notes=metrics["limitations"],
         extra={"trainable_row_count": metrics["trainable_row_count"]},
     )
     print(f"data_audit_status: {status}")

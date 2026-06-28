@@ -18,7 +18,7 @@ def update_run_state(
     checks: list[str] | None = None,
     failures: list[str] | None = None,
     repairs: list[str] | None = None,
-    limitations: list[str] | None = None,
+    notes: list[str] | None = None,
     extra: dict[str, Any] | None = None,
 ) -> None:
     ensure_directories()
@@ -32,7 +32,7 @@ def update_run_state(
         "checks_run": checks or [],
         "failures_found": failures or [],
         "repairs_attempted": repairs or [],
-        "remaining_limitations": limitations or [],
+        "manual_review_notes": notes or [],
     }
     if extra:
         entry["extra"] = extra
@@ -54,7 +54,7 @@ def _append_log(stage: str, entry: dict[str, Any]) -> None:
         f"- checks run: {', '.join(entry['checks_run']) or 'none'}",
         f"- failures found: {', '.join(entry['failures_found']) or 'none'}",
         f"- repairs attempted: {', '.join(entry['repairs_attempted']) or 'none'}",
-        f"- remaining limitations: {', '.join(entry['remaining_limitations']) or 'none'}",
+        f"- remaining context: {', '.join(entry['manual_review_notes']) or 'none'}",
         "",
     ]
     with LOG_PATH.open("a", encoding="utf-8") as handle:

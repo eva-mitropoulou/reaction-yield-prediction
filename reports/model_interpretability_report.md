@@ -2,10 +2,10 @@
 
 ## Summary
 
-- Primary split: Additive held-out grouped split
-- Highest tree-importance component role: Aryl Halide
-- Held-out component role: Additive
-- Held-out split MAE for interpreted model: 10.7433
+- Primary split: Ligand held-out grouped split
+- Highest tree-importance component role: Ligand
+- Held-out component role: Ligand
+- Held-out split MAE for interpreted model: 4.0137
 
 ## Included Analyses
 
@@ -23,7 +23,7 @@
 - Held out component failure cases summarized: True
 - No causality overclaim: True
 
-## Limitations
+## Interpretation Context
 
 - Importances describe model behavior, not chemical causality.
 - One-hot categorical features cannot infer molecular mechanism.

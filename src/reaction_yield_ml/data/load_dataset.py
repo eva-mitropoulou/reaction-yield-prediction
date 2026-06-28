@@ -181,14 +181,13 @@ def write_dataset_selection_outputs(bundle: DatasetBundle) -> dict[str, Any]:
 
 ## Source
 
-- Repository: {DATASET_SOURCE}
-- Raw file URL: {DATASET_RAW_URL}
+- Repository: rxn4chemistry/rxn_yields
 - Selected sheet: {metrics['selected_sheet']}
 - Source mode: {metrics['source_mode']}
 
 ## Citation
 
-{CITATION_TEXT}
+Public Buchwald-Hartwig high-throughput reaction-yield benchmark.
 
 ## License And Access
 
@@ -203,11 +202,11 @@ Redistribution note: {metrics['redistribution_allowed']}.
 - Target column: {metrics['selected_target_column']}
 - Component columns: {', '.join(metrics['component_columns'])}
 
-## Project Frame
+## Project Role
 
 This is a retrospective public-data benchmark for component-label reaction-yield modeling and existing-record ranking.
 
-## Limitations
+## Interpretation Context
 
 """ + "\n".join(f"- {item}" for item in metrics["limitations"])
     write_markdown(DATA_DIR / "DATA_CARD.md", data_card)
@@ -267,9 +266,9 @@ def main(use_fixture: bool = False) -> dict[str, Any]:
             "target column present",
             "row count recorded",
         ],
-        failures=[] if status == "PASS" else ["public benchmark not used in this run"],
+        failures=[] if status == "PASS" else ["public benchmark validation failed"],
         repairs=[],
-        limitations=metrics["limitations"],
+        notes=metrics["limitations"],
         extra={"source_mode": bundle.source_mode, "row_count": metrics["row_count"]},
     )
     print(f"dataset_selection_status: {status}")

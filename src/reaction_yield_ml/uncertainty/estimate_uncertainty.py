@@ -162,7 +162,7 @@ def estimate_uncertainty(use_fixture: bool = False) -> dict[str, Any]:
         "limitations": [
             "Tree-ensemble variance is a heuristic uncertainty proxy.",
             "Conformal intervals are retrospective and depend on calibration residuals from the available public records.",
-            "Uncertainty is evaluated against actual errors but is not claimed to be perfect.",
+            "Uncertainty is evaluated against actual errors and reported with empirical coverage.",
         ],
     }
     write_json(METRICS_DIR / "uncertainty_calibration_metrics.json", metrics)
@@ -219,7 +219,7 @@ def _write_report(metrics: dict[str, Any]) -> None:
 
 """ + "\n".join(f"- {key}: {value}" for key, value in metrics["quality_gates"].items()) + """
 
-## Limitations
+## Interpretation Context
 
 """ + "\n".join(f"- {item}" for item in metrics["limitations"])
     write_markdown(REPORTS_DIR / "uncertainty_calibration_report.md", report)
@@ -242,7 +242,7 @@ def main(use_fixture: bool = False) -> dict[str, Any]:
         checks=list(gates.keys()),
         failures=[] if status == "PASS" else [key for key, value in gates.items() if not value],
         repairs=[],
-        limitations=metrics["limitations"],
+        notes=metrics["limitations"],
         extra={"primary_split": metrics["primary_split"]},
     )
     print(f"uncertainty_calibration_status: {status}")

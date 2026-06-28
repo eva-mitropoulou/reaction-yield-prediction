@@ -3,8 +3,8 @@
 ## Summary
 
 - Feature family built: categorical baseline one-hot encoding.
-- Feature matrix rows: 3955
-- Feature matrix columns: 44
+- Feature matrix rows: 288
+- Feature matrix columns: 17
 - Component roles: Ligand, Additive, Base, Aryl Halide
 
 ## Optional Structure Features
@@ -19,7 +19,7 @@
 - Feature rows align with cleaned rows: True
 - Missing structures handled explicitly: True
 
-## Limitations
+## Interpretation Context
 
 - The selected public workbook contains component labels, not component structures.
 - Structure-based featurization is therefore limited in this run and is marked as skipped rather than imputed.

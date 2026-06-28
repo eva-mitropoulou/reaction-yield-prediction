@@ -9,7 +9,7 @@
 - metrics_saved: True
 - active_learning_existing_records_only: True
 - ranking_clearly_retrospective: True
-- limitations_section_exists: True
+- interpretation_context_section_exists: True
 - reproduce_small_works: True
 - tests_pass: True
 - readme_exists: True

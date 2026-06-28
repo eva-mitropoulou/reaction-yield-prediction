@@ -34,6 +34,6 @@ The current project uses public Buchwald-Hartwig HTE component labels and catego
 - Uncertainty analysis repeated under leave-one-component-out validation.
 - Existing-record ranking rerun with structure-aware applicability-domain checks.
 
-## Public Claim Boundary
+## Extension Criteria
 
-Do not claim mechanistic interpretation, operational reaction guidance, or structure-aware modeling until the mapped structures, feature pipeline, validation results, and reports are committed.
+Structure-aware claims should wait until the mapped structures, feature pipeline, validation results, and reports are committed.

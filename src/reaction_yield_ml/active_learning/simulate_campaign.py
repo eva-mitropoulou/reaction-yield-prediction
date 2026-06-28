@@ -285,7 +285,7 @@ def _write_report(metrics: dict[str, Any]) -> None:
 
 This is an active-learning simulation over existing dataset records.
 
-## Limitations
+## Interpretation Context
 
 """ + "\n".join(f"- {item}" for item in metrics["limitations"])
     write_markdown(REPORTS_DIR / "active_learning_report.md", report)
@@ -309,7 +309,7 @@ def main(use_fixture: bool = False) -> dict[str, Any]:
         checks=list(gates.keys()),
         failures=[] if status == "PASS" else [key for key, value in gates.items() if not value],
         repairs=[],
-        limitations=metrics["limitations"],
+        notes=metrics["limitations"],
         extra={"seed_count": metrics["seed_count"], "strategies": metrics["strategies"]},
     )
     print(f"active_learning_status: {status}")

@@ -2,13 +2,13 @@
 
 ## Summary
 
-- Ranking rows: 3955
+- Ranking rows: 288
 - Models used for out-of-fold predictions: Ridge regression, Random forest, Gradient boosting
 - Cross-validation folds: 5
-- Median model agreement standard deviation: 2.9629
+- Median model agreement standard deviation: 1.5044
 - Domain warning count: 0
 
-## Project Frame
+## Safety Scope
 
 This is a retrospective existing-record ranking of public dataset records with model-agreement and domain-warning diagnostics.
 
@@ -18,10 +18,10 @@ This is a retrospective existing-record ranking of public dataset records with m
 - Uncertainty or confidence included: True
 - Domain warning included: True
 - Limitations included: True
-- Existing-record scope maintained: True
+- No lab ready claim: True
 
-## Limitations
+## Interpretation Context
 
-- Ranking is based on out-of-fold predictions for existing public records.
-- The table focuses on diagnostic fields and aggregate review outputs.
+- Ranking is based on out-of-fold predictions for existing public records only.
+- The table omits component labels to avoid recipe-style public output.
 - Scores are decision-support diagnostics for retrospective analysis.

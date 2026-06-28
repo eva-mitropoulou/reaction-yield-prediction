@@ -1,9 +1,9 @@
 {
   "categorical_cardinalities": {
-    "Additive": 22,
-    "Aryl halide": 15,
+    "Additive": 4,
+    "Aryl halide": 4,
     "Base": 3,
-    "Ligand": 4
+    "Ligand": 6
   },
   "component_column_availability": {
     "Additive": true,
@@ -37,10 +37,10 @@
     "Aryl halide",
     "Output"
   ],
-  "raw_row_count": 3955,
-  "source_mode": "public_benchmark",
-  "target_max": 100.0,
-  "target_mean": 33.0853,
-  "target_min": 0.0,
-  "trainable_row_count": 3955
+  "raw_row_count": 288,
+  "source_mode": "fixture",
+  "target_max": 89.0,
+  "target_mean": 48.5,
+  "target_min": 8.0,
+  "trainable_row_count": 288
 }

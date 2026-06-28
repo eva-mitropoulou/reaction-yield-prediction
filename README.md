@@ -14,7 +14,7 @@ What this repo does:
 - runs a retrospective active-learning simulation over existing records
 - ranks existing public records for analysis
 
-Project frame:
+Project role:
 
 - Retrospective public-data benchmark.
 - Existing-record ranking and uncertainty diagnostics.

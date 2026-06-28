@@ -2,9 +2,9 @@
 
 ## Summary
 
-- Source mode: public_benchmark
-- Raw row count: 3955
-- Clean row count: 3955
+- Source mode: fixture
+- Raw row count: 288
+- Clean row count: 288
 - Missing target rows removed: 0
 - Impossible yield rows removed: 0
 - Duplicate records removed: 0
@@ -18,7 +18,7 @@
 - Missing component values are explicitly labeled.
 - Duplicate exact component-target records are removed.
 
-## Limitations
+## Interpretation Context
 
 - Component strings are standardized as categorical labels; missing chemistry is not invented.
 - The selected workbook provides component labels; molecular descriptors require external public structure mappings.

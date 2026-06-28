@@ -225,7 +225,7 @@ def _write_report(metrics: dict[str, Any]) -> None:
 
 """ + "\n".join(quality_gates) + """
 
-## Limitations
+## Interpretation Context
 
 """ + "\n".join(f"- {item}" for item in metrics["limitations"])
     write_markdown(REPORTS_DIR / "model_interpretability_report.md", report)
@@ -247,7 +247,7 @@ def main(use_fixture: bool = False) -> dict[str, Any]:
         checks=list(gates.keys()),
         failures=[] if status == "PASS" else [key for key, value in gates.items() if not value],
         repairs=[],
-        limitations=metrics["limitations"],
+        notes=metrics["limitations"],
         extra={"primary_split": metrics["primary_split"]},
     )
     print(f"model_interpretability_status: {status}")

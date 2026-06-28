@@ -157,7 +157,7 @@ This is a retrospective existing-record ranking of public dataset records with m
 
 """ + "\n".join(quality_gates) + """
 
-## Limitations
+## Interpretation Context
 
 """ + "\n".join(f"- {item}" for item in metrics["limitations"])
     write_markdown(REPORTS_DIR / "existing_record_ranking_report.md", report)
@@ -178,7 +178,7 @@ def main(use_fixture: bool = False) -> dict[str, Any]:
         checks=list(gates.keys()),
         failures=[] if status == "PASS" else [key for key, value in gates.items() if not value],
         repairs=[],
-        limitations=metrics["limitations"],
+        notes=metrics["limitations"],
         extra={"ranking_rows": metrics["row_count"]},
     )
     print(f"existing_record_ranking_status: {status}")

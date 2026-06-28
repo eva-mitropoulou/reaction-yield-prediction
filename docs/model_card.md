@@ -26,7 +26,11 @@ Retrospective public-data benchmark for reaction-yield modeling and existing-rec
 
 ## Metrics
 
-{'mae': 10.7537, 'r2': 0.7262, 'rmse': 14.2371, 'spearman': 0.8597, 'top_10pct_enrichment': 7.3333}
+- MAE: 10.7537
+- RMSE: 14.2371
+- R2: 0.7262
+- Spearman: 0.8597
+- Top-10% enrichment: 7.3333
 
 ## Limitations
 

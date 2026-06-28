@@ -2,7 +2,7 @@
 
 ## 1. Executive Summary
 
-Reaction Yield Prediction and Synthesis-Aware Triage from Public HTE Data is a retrospective public-data benchmark for reaction-yield modeling. It covers data curation, categorical component featurization, leakage-aware validation, uncertainty-aware prioritization, active-learning simulation, and existing-record ranking only.
+Reaction Yield Prediction from Public HTE Component Labels is a retrospective public-data benchmark for reaction-yield modeling. It covers data curation, categorical component featurization, leakage-aware validation, uncertainty-aware prioritization, active-learning simulation, and existing-record ranking only.
 
 This is not a wet-lab protocol, not a guarantee of experimental success, includes no new chemistry generation, and does not provide operational condition guidance.
 
@@ -70,7 +70,7 @@ The ranking table contains existing records only. It includes predicted yield, c
 - Categorical features cannot support mechanistic claims.
 - Out-of-component validation is more reliable than random split performance for generalization claims.
 - Active-learning curves are retrospective simulations over existing records.
-- Existing-record ranking is decision-support analysis, not lab-ready condition recommendation.
+- Existing-record ranking is decision-support analysis, not operational condition guidance.
 
 ## 12. Reproducibility
 

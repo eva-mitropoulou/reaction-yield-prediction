@@ -10,7 +10,7 @@
 
 ## Safety Scope
 
-This is a retrospective existing-record ranking of public dataset records. It is not a synthetic recipe recommendation, not a wet-lab protocol, and not a lab-ready condition list.
+This is a retrospective existing-record ranking of public dataset records. It is not a synthetic recipe recommendation, not a wet-lab protocol, and not operational condition guidance.
 
 ## Quality Gates
 
@@ -24,4 +24,4 @@ This is a retrospective existing-record ranking of public dataset records. It is
 
 - Ranking is based on out-of-fold predictions for existing public records only.
 - The table omits component labels to avoid recipe-style public output.
-- Scores are decision-support diagnostics for retrospective analysis, not lab-ready conditions.
+- Scores are decision-support diagnostics for retrospective analysis, not operational reaction conditions.

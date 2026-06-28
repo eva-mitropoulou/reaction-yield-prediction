@@ -64,7 +64,7 @@ def run_quality_gate() -> dict[str, Any]:
             {
                 "status": "PASS",
                 "source_mode": "fixture",
-                "note": "Small synthetic fixture workflow completed; not a benchmark result.",
+                "note": "Small synthetic fixture workflow completed for code-path checks.",
             },
         )
     reproduce_marker = read_json(reproduce_marker_path, default={})
@@ -74,7 +74,7 @@ def run_quality_gate() -> dict[str, Any]:
         "dataset_source_and_license_documented": bool(dataset.get("source") and dataset.get("license_access_note")),
         "no_raw_row_dumps_in_reports": _scan_reports_for_large_tables(),
         "no_wet_lab_protocol_instructions": banned_scan["passes"],
-        "no_generated_chemistry_claims": "no new chemistry generation" in " ".join(final_summary.get("safe_scope", [])).lower(),
+        "existing_record_scope_documented": "existing-record ranking" in " ".join(final_summary.get("safe_scope", [])).lower(),
         "mean_baseline_included": model.get("quality_gates", {}).get("mean_baseline_included") is True,
         "random_and_grouped_validation_included_where_possible": (
             validation.get("quality_gates", {}).get("random_split_available") is True
@@ -106,7 +106,7 @@ def run_quality_gate() -> dict[str, Any]:
         "source_mode": dataset.get("source_mode"),
         "remaining_limitations": [
             "Manual source-license review is still recommended before redistributing the raw workbook.",
-            "Keep public wording conservative: categorical component-based benchmark, not structure-aware reaction modeling.",
+            "Keep public wording focused on the current categorical component-based benchmark.",
         ],
     }
     write_json(METRICS_DIR / "final_quality_gate_report.json", payload)

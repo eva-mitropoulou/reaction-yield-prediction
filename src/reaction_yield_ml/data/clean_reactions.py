@@ -58,7 +58,7 @@ def clean_reactions(use_fixture: bool = False) -> tuple[pd.DataFrame, dict[str, 
         "missing_structure_features": True,
         "limitations": [
             "Component strings are standardized as categorical labels; missing chemistry is not invented.",
-            "No component SMILES are available in the selected workbook, so molecular descriptors are skipped unless external structures are supplied.",
+            "The selected workbook provides component labels; molecular descriptors require external public structure mappings.",
             "Rows outside 0-100 percent yield are excluded rather than clipped.",
         ],
     }

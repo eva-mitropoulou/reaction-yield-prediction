@@ -4,7 +4,7 @@ This note records the evidence needed before the current component-label benchma
 
 ## Current Scope
 
-The current project uses public Buchwald-Hartwig HTE component labels and categorical one-hot features. The selected workbook does not include component structures, so the public benchmark should be described as reaction-yield ML on public HTE component labels.
+The current project uses public Buchwald-Hartwig HTE component labels and categorical one-hot features. The selected workbook provides component labels, so the public benchmark should be described as reaction-yield ML on public HTE component labels.
 
 ## Required Inputs
 

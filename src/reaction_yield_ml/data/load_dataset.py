@@ -157,8 +157,8 @@ def summarize_dataset(bundle: DatasetBundle) -> dict[str, Any]:
         "redistribution_allowed": "review_source_license_before_redistributing_raw_workbook",
         "limitations": [
             "Retrospective public-data benchmark only.",
-            "Component structures are not provided in the selected workbook; structure-based features are skipped unless SMILES are added externally.",
-            "The workflow ranks existing public records only and does not generate new reaction conditions.",
+            "The selected workbook provides component labels; structure-aware features require an external public component-to-SMILES mapping.",
+            "The workflow ranks existing public records.",
         ],
     }
 
@@ -203,9 +203,9 @@ Redistribution note: {metrics['redistribution_allowed']}.
 - Target column: {metrics['selected_target_column']}
 - Component columns: {', '.join(metrics['component_columns'])}
 
-## Safe-Use Scope
+## Project Frame
 
-This is a retrospective public-data benchmark. It is not a wet-lab protocol, not a guarantee of experimental success, and does not generate new chemistry. Ranked outputs are existing-record ranking only.
+This is a retrospective public-data benchmark for component-label reaction-yield modeling and existing-record ranking.
 
 ## Limitations
 
@@ -235,7 +235,7 @@ Selected public Buchwald-Hartwig HTE reaction-yield workbook for reaction-yield 
 
 ## Safety Scope
 
-This project supports retrospective public-data benchmarking and existing-record ranking only. It does not provide operational synthesis instructions.
+This project supports retrospective public-data benchmarking and existing-record ranking.
 """
     write_markdown(REPORT_PATHS["selection"], selection_report)
     write_json(REPORT_PATHS["selection_metrics"], metrics)

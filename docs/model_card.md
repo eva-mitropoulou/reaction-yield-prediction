@@ -4,12 +4,12 @@
 
 Retrospective public-data benchmark for reaction-yield modeling and existing-record ranking.
 
-## Not Intended For
+## Project Frame
 
-- Wet-lab protocol generation
-- Operational condition recommendation
-- Yield guarantees
-- New chemistry generation
+- Retrospective public-data benchmark.
+- Existing-record ranking and uncertainty diagnostics.
+- Component-label modeling with categorical features.
+- Structure-aware reaction modeling documented as future work.
 
 ## Data And Features
 
@@ -34,4 +34,4 @@ Retrospective public-data benchmark for reaction-yield modeling and existing-rec
 
 ## Limitations
 
-The model uses categorical component labels because component structures are not available in the selected workbook. Interpretability outputs describe model behavior, not chemical causality.
+The model uses categorical component labels because the selected workbook provides labels rather than component structures. Interpretability outputs describe model behavior for this component-label benchmark.

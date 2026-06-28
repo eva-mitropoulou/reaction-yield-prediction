@@ -2,9 +2,9 @@
 
 ## 1. Executive Summary
 
-Reaction Yield Prediction from Public HTE Component Labels is a retrospective public-data benchmark for reaction-yield modeling. It covers data curation, categorical component featurization, leakage-aware validation, uncertainty-aware prioritization, active-learning simulation, and existing-record ranking only.
+Reaction Yield Prediction from Public HTE Component Labels is a retrospective public-data benchmark for reaction-yield modeling. It covers data curation, categorical component featurization, leakage-aware validation, uncertainty-aware prioritization, active-learning simulation, and existing-record ranking.
 
-This is not a wet-lab protocol, not a guarantee of experimental success, includes no new chemistry generation, and does not provide operational condition guidance.
+Project frame: public HTE component-label modeling, retrospective validation, and existing-record ranking.
 
 ## 2. Why Reaction-Yield Prediction Matters
 
@@ -21,7 +21,7 @@ Reaction-yield modeling helps evaluate whether machine-learning workflows can le
 
 ## 4. Cleaning And Standardization
 
-The pipeline standardizes the target as numeric percentage, normalizes component labels as strings, removes impossible target values, and removes exact duplicate component-target records. It does not invent missing chemistry.
+The pipeline standardizes the target as numeric percentage, normalizes component labels as strings, removes impossible target values, and removes exact duplicate component-target records.
 
 ## 5. Feature Engineering
 
@@ -34,7 +34,7 @@ The pipeline standardizes the target as numeric percentage, normalizes component
 
 Valid splits: Additive held-out grouped split, Held-out additive split, Held-out base split, Held-out ligand split, Held-out aryl halide split, Random split
 
-The benchmark includes random validation and grouped/out-of-component validation where possible. Random split performance is not treated as sole evidence.
+The benchmark includes random validation and grouped/out-of-component validation where possible. Out-of-component validation carries the main generalization interpretation.
 
 ## 7. Model Benchmark
 
@@ -54,23 +54,23 @@ Validation note: In this dataset, the grouped split holds out additive values, s
 - Primary split coverage: 0.7978
 - Uncertainty-error Spearman: 0.6296
 
-Uncertainty is evaluated against actual errors and low-confidence predictions are flagged. It is not claimed to be perfect.
+Uncertainty is evaluated against actual errors and low-confidence predictions are flagged.
 
 ## 9. Active-Learning Simulation
 
-The active-learning simulation is a budgeted selection workflow over existing public records. It uses multiple seeds, includes a random baseline, and compares Random selection, Highest predicted yield, Uncertainty sampling, Diversity-aware, Score plus uncertainty, Diverse high-score. It is not lab automation and does not instruct anyone to run reactions.
+The active-learning simulation is a budgeted selection workflow over existing public records. It uses multiple seeds, includes a random baseline, and compares Random selection, Highest predicted yield, Uncertainty sampling, Diversity-aware, Score plus uncertainty, Diverse high-score.
 
 ## 10. Existing-Record Ranking
 
-The ranking table contains existing records only. It includes predicted yield, confidence/model-agreement diagnostics, domain warnings, and component-diversity score without operational synthesis instructions.
+The ranking table contains existing records. It includes predicted yield, confidence/model-agreement diagnostics, domain warnings, and component-diversity score.
 
 ## 11. Limitations
 
 - Component structures are unavailable in the selected workbook.
-- Categorical features cannot support mechanistic claims.
+- Categorical features support component-label benchmarking.
 - Out-of-component validation is more reliable than random split performance for generalization claims.
 - Active-learning curves are retrospective simulations over existing records.
-- Existing-record ranking is decision-support analysis, not operational condition guidance.
+- Existing-record ranking is decision-support analysis.
 
 ## 12. Reproducibility
 
@@ -91,7 +91,7 @@ Small fixture smoke test:
 make reproduce-small
 ```
 
-The fixture is synthetic and does not support benchmark claims.
+The fixture is synthetic and supports code-path checks.
 
 ## 13. Working Summary
 

@@ -28,12 +28,12 @@ Redistribution note: review_source_license_before_redistributing_raw_workbook.
 - Target column: Output
 - Component columns: Ligand, Additive, Base, Aryl halide
 
-## Safe-Use Scope
+## Project Frame
 
-This is a retrospective public-data benchmark. It is not a wet-lab protocol, not a guarantee of experimental success, and does not generate new chemistry. Ranked outputs are existing-record ranking only.
+This is a retrospective public-data benchmark for component-label reaction-yield modeling and existing-record ranking.
 
 ## Limitations
 
-- Retrospective public-data benchmark only.
-- Component structures are not provided in the selected workbook; structure-based features are skipped unless SMILES are added externally.
-- The workflow ranks existing public records only and does not generate new reaction conditions.
+- Retrospective public-data benchmark.
+- The selected workbook provides component labels; structure-aware features require an external public component-to-SMILES mapping.
+- The workflow ranks existing public records.

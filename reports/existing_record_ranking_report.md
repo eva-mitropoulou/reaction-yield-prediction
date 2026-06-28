@@ -8,9 +8,9 @@
 - Median model agreement standard deviation: 2.9629
 - Domain warning count: 0
 
-## Safety Scope
+## Project Frame
 
-This is a retrospective existing-record ranking of public dataset records. It is not a synthetic recipe recommendation, not a wet-lab protocol, and not operational condition guidance.
+This is a retrospective existing-record ranking of public dataset records with model-agreement and domain-warning diagnostics.
 
 ## Quality Gates
 
@@ -18,10 +18,10 @@ This is a retrospective existing-record ranking of public dataset records. It is
 - Uncertainty or confidence included: True
 - Domain warning included: True
 - Limitations included: True
-- No lab ready claim: True
+- Existing-record scope maintained: True
 
 ## Limitations
 
-- Ranking is based on out-of-fold predictions for existing public records only.
-- The table omits component labels to avoid recipe-style public output.
-- Scores are decision-support diagnostics for retrospective analysis, not operational reaction conditions.
+- Ranking is based on out-of-fold predictions for existing public records.
+- The table focuses on diagnostic fields and aggregate review outputs.
+- Scores are decision-support diagnostics for retrospective analysis.

@@ -224,7 +224,7 @@ def simulate_campaign(use_fixture: bool = False) -> dict[str, Any]:
         },
         "limitations": [
             "Retrospective active-learning simulation over existing public records only.",
-            "The simulation does not instruct anyone to run reactions.",
+            "The simulation evaluates budgeted selection over existing records.",
             "Candidate component labels are known as public records; target yields are revealed only after simulated acquisition.",
             "All strategies share the same initial labeled set for a given random seed.",
         ],
@@ -283,7 +283,7 @@ def _write_report(metrics: dict[str, Any]) -> None:
 
 ## Safety Scope
 
-This is an active-learning simulation over existing dataset records. It is not lab automation and does not provide instructions to run reactions.
+This is an active-learning simulation over existing dataset records.
 
 ## Limitations
 

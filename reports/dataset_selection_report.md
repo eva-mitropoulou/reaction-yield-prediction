@@ -9,7 +9,7 @@ Selected public Buchwald-Hartwig HTE reaction-yield workbook for reaction-yield 
 - Public benchmark lineage with reaction components and measured yield.
 - Suitable for random and out-of-component validation.
 - Contains component columns and a measured target column.
-- No private credentials required for the public repository source.
+- Public repository source used.
 
 ## Manifest Summary
 
@@ -22,4 +22,4 @@ Selected public Buchwald-Hartwig HTE reaction-yield workbook for reaction-yield 
 
 ## Safety Scope
 
-This project supports retrospective public-data benchmarking and existing-record ranking only. It does not provide operational synthesis instructions.
+This project supports retrospective public-data benchmarking and existing-record ranking.

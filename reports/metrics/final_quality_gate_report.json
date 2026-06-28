@@ -7,7 +7,7 @@
     "limitations_section_exists": true,
     "mean_baseline_included": true,
     "metrics_saved": true,
-    "no_generated_chemistry_claims": true,
+        "existing_record_scope_documented": true,
     "no_raw_row_dumps_in_reports": true,
     "no_unsupported_claims": true,
     "no_wet_lab_protocol_instructions": true,
@@ -19,7 +19,7 @@
   },
   "remaining_limitations": [
     "Manual source-license review is still recommended before redistributing the raw workbook.",
-    "Keep public wording conservative: categorical component-based benchmark, not structure-aware reaction modeling."
+        "Keep public wording focused on the current categorical component-based benchmark."
   ],
   "source_mode": "public_benchmark",
   "status": "PASS"

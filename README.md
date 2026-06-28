@@ -2,7 +2,7 @@
 
 I use this repository to keep a reproducible reaction-yield modeling workflow on public high-throughput experimentation (HTE) data. The main goal is to test how far simple component-label models can go when the validation split holds out reaction components instead of only shuffling rows.
 
-The current dataset is the public Buchwald-Hartwig HTE yield benchmark from the Ahneman/Dreher/Doyle lineage. The selected workbook provides reaction component labels but not component structures, so this version is intentionally a categorical component-based benchmark rather than a structure-aware reaction model.
+The current dataset is the public Buchwald-Hartwig HTE yield benchmark from the Ahneman/Dreher/Doyle lineage. The selected workbook provides reaction component labels, so this version is a categorical component-based benchmark. Structure-aware reaction features are documented as a future extension.
 
 What this repo does:
 
@@ -12,15 +12,14 @@ What this repo does:
 - trains mean, linear, random forest, and gradient boosting baselines
 - evaluates uncertainty/error diagnostics and empirical coverage
 - runs a retrospective active-learning simulation over existing records
-- ranks existing public records for analysis, without generating new chemistry
+- ranks existing public records for analysis
 
-Scope boundaries:
+Project frame:
 
-- This is not a wet-lab protocol.
-- This is not a guarantee of experimental success.
-- This project does not generate new chemistry.
-- Ranked outputs are retrospective existing-record rankings only.
-- Reports avoid operational synthesis instructions, raw row dumps, long chemical lists, and recipe-style output.
+- Retrospective public-data benchmark.
+- Existing-record ranking and uncertainty diagnostics.
+- Component-label modeling with categorical features.
+- Reports use aggregate summaries and public-safe outputs.
 
 ## Reproduction
 
@@ -42,7 +41,7 @@ make reproduce-small
 make test
 ```
 
-The small fixture is synthetic and exists only to test code paths. It is not used to claim benchmark performance.
+The small fixture is synthetic and exists to test code paths.
 
 ## Project Layout
 

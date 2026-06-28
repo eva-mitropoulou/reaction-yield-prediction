@@ -39,6 +39,7 @@ Small fixture path for fast checks:
 
 ```bash
 make reproduce-small
+make test
 ```
 
 The small fixture is synthetic and exists only to test code paths. It is not used to claim benchmark performance.

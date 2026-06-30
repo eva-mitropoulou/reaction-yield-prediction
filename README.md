@@ -1,102 +1,113 @@
 # Reaction Yield Prediction from Public HTE Data
 
-This project builds a reaction-yield ML workflow using public Buchwald-Hartwig high-throughput experimentation records. I curated reaction component labels, cleaned yield values, built categorical one-hot features, trained baseline and tree-based models, and then tested whether the models still work when the validation split holds out reaction components instead of only shuffling rows.
+This project builds a reaction-yield modeling workflow using public high-throughput experimentation (HTE) data. I curated public Buchwald-Hartwig reaction-yield records, built categorical component-label features, benchmarked simple ML models, and tested whether performance holds when reaction components are held out rather than only shuffling rows.
 
-The goal is to understand how much signal is available from component labels alone. This version is a categorical component-based benchmark: it uses ligand, additive, base, and aryl-halide labels, not structure-aware reaction descriptors. Structure-aware reaction features are documented as a future extension.
-
-The workflow is supported by several validation, benchmarking, and decision-support layers: dataset selection, reaction cleaning, leakage-aware feature engineering, random and out-of-component splits, model benchmarking, uncertainty calibration, active-learning simulation over existing records, model interpretation, and existing-record ranking.
+The goal is to evaluate how far public HTE records can support yield prediction, uncertainty checks, out-of-component validation, active-learning simulation, and existing-record ranking without generating new chemistry or claiming experimental success.
 
 ## Table of Contents
 
-- [At a Glance](#at-a-glance)
 - [Project Workflow](#project-workflow)
-- [Current Snapshot](#current-snapshot)
-- [Selected Model](#selected-model)
-- [How To Read This](#how-to-read-this)
+- [Model Benchmarking and Selection](#model-benchmarking-and-selection)
+- [Main Results](#main-results)
+  - [Out-of-Component Validation](#out-of-component-validation)
+  - [Uncertainty and Error Checks](#uncertainty-and-error-checks)
+  - [Active-Learning Simulation](#active-learning-simulation)
 - [Scope and Limits](#scope-and-limits)
 - [Reproduce](#reproduce)
-- [Project Layout](#project-layout)
 - [Useful Files](#useful-files)
-
-## At a Glance
-
-| Part | What it does |
-|---|---|
-| Dataset selection | Uses the public Buchwald-Hartwig HTE yield benchmark from the Ahneman/Dreher/Doyle lineage. |
-| Cleaning | Standardizes yield percentages and reaction component labels. |
-| Features | Builds categorical one-hot features from component labels. |
-| Validation | Compares random validation with grouped and out-of-component splits. |
-| Benchmarking | Trains mean, linear, random forest, and gradient boosting baselines. |
-| Uncertainty | Checks empirical coverage and uncertainty/error behavior. |
-| Active learning | Simulates budgeted selection strategies over existing records. |
-| Ranking | Ranks existing public records with prediction and uncertainty context. |
 
 ## Project Workflow
 
-The workflow starts from a public Buchwald-Hartwig HTE yield table. The target is reaction yield percentage, and the available component fields are ligand, additive, base, and aryl-halide labels.
+This repository keeps the full retrospective benchmark in one reproducible place:
 
-Cleaning keeps the task intentionally narrow. The pipeline standardizes the target as a numeric percentage, normalizes component labels as strings, removes impossible target values, and removes exact duplicate component-target records.
+- selects the public Buchwald-Hartwig HTE yield workbook from the Ahneman, Dreher, and Doyle benchmark lineage
+- writes a dataset manifest and data card with source, access, target, component columns, and limitations
+- audits row counts, missing values, duplicate records, component availability, target range, and component cardinalities
+- cleans the reaction-yield table into model-ready records with numeric yield percentages and normalized component labels
+- builds categorical one-hot features from ligand, additive, base, and aryl-halide labels
+- creates random, grouped, and out-of-component validation splits
+- benchmarks mean, linear, random forest, and gradient boosting models
+- evaluates uncertainty/error behavior and empirical interval coverage
+- simulates budgeted selection strategies over existing public records
+- ranks existing dataset records with model score, uncertainty, agreement, and domain warnings
+- generates reports, metrics JSON files, figures, and lightweight reproducibility tests
 
-Feature engineering is categorical by design. The primary feature family is one-hot encoding over reaction component labels. Molecular descriptors and fingerprints are skipped in this version because the selected workbook provides component labels but not component SMILES, so the benchmark stays honest about what information the model can actually see.
+The selected workbook provides component labels, not component structures. This is therefore a component-label benchmark, not a full molecular reaction representation.
 
-The validation design is the main point of the project. A random split tests interpolation across shuffled records. Grouped and out-of-component splits ask a harder and more useful question: whether a model can still make reasonable predictions when a ligand, additive, base, or aryl halide is held out.
+## Model Benchmarking and Selection
 
-The final workflow adds uncertainty diagnostics, a retrospective active-learning simulation, and an existing-record ranking table. These outputs are used to study model behavior over records already in the dataset, not to claim new experimental outcomes.
+The benchmark compares a mean predictor, one-hot linear baselines, random forest, and gradient boosting. The generated reports select the random forest on the additive-held-out grouped split as the primary practical baseline.
 
-## Current Snapshot
+The validation logic is the important part:
 
-| Check | Result |
-|---|---:|
-| Dataset | Buchwald-Hartwig HTE yield benchmark |
-| Source mode | public_benchmark |
-| Raw rows | 3,955 |
-| Clean rows | 3,955 |
-| Feature family | categorical one-hot |
-| Feature count | 44 |
-| Selected model | random forest |
-| Primary split | Additive held-out grouped split |
-| MAE | 10.7537 |
-| RMSE | 14.2371 |
-| R2 | 0.7262 |
-| Spearman | 0.8597 |
-| Top-10 percent enrichment | 7.3333 |
-| Primary split empirical 90 percent coverage | 0.7978 |
-| Existing-record ranking rows | 3,955 |
-| Active-learning strategies | 6 strategies, 5 seeds |
+- Random split is the easier row-shuffle benchmark.
+- Out-of-component split is the harder test where selected reaction components are held out.
+- This checks whether the model generalizes beyond very similar component combinations.
 
-## Selected Model
+In this dataset, the primary grouped split holds out additives, so it is equivalent to the held-out additive split. The aryl-halide held-out split is the weakest generalization case and should be read as an important limitation.
 
-The selected model is `random_forest` on the additive held-out grouped split. In this dataset, the grouped split holds out additive values, so it uses the same held-out group design as the held-out additive split.
+![Model comparison by split](reports/figures/model_comparison_by_split.png)
 
-The model is intentionally simple because the available inputs are component labels. That makes the benchmark easy to audit: it can learn label-level patterns, but it cannot reason about molecular structure beyond what is implicit in the component names.
+Full per-model, per-split metrics are in `reports/model_quality_review_report.md`.
 
-## How To Read This
+## Main Results
 
-Random-split performance is useful, but it is not the main generalization story. Public HTE tables often contain repeated component families, so shuffled rows can make the task easier than a real component-generalization setting.
+| Area | Result | Interpretation |
+|---|---|---|
+| Dataset | 3,955 public HTE records | Main benchmark table from the public Buchwald-Hartwig workbook |
+| Features | 44 one-hot component-label features | Categorical component-based representation |
+| Best random split model | random forest, MAE 8.9717, RMSE 11.6171, R2 0.8266 | Easier shuffled-row benchmark |
+| Selected out-of-component model | random forest on additive-held-out grouped split, MAE 10.7537, RMSE 14.2371, R2 0.7262 | Harder component-generalization check |
+| Mean-baseline comparison | primary split MAE improves from 22.9984 to 10.7537 | The selected model clearly beats a naive yield-average baseline |
+| Uncertainty check | empirical 90% coverage 0.7978, uncertainty-error Spearman 0.6296 | Useful diagnostic signal, but undercalibrated |
+| Active-learning simulation | component-diverse high-score top-yield recovery 0.6762 at final budget; random baseline 0.1232 | Tests prioritization behavior over existing records |
+| Ranked outputs | `reports/ranked_existing_reaction_records.csv`, 3,955 records | Existing-record review table |
 
-The grouped and out-of-component splits are the important checks. They test whether the model can make useful predictions when one component family is held out from training.
+### Out-of-Component Validation
 
-The uncertainty analysis is diagnostic. It uses random-forest ensemble variance and split conformal intervals to ask whether low-confidence predictions and empirical coverage behave sensibly. On the primary additive-held-out split, the empirical 90 percent interval coverage is 0.7978. It should not be read as a guarantee of experimental uncertainty.
+Random splits can overestimate performance because similar component combinations may appear in both train and test data. Out-of-component validation is stricter because the model must predict reactions involving held-out components.
 
-The active-learning simulation is retrospective. It compares selection strategies over records that already exist in the public table, including random selection, highest predicted yield, uncertainty sampling, diversity-aware selection, score plus uncertainty, and diverse high-score.
+The selected random forest performs well on the additive, base, and ligand held-out checks, but it is much weaker on the aryl-halide held-out split:
 
-At the final simulated budget of 474 existing records, the component-diverse high-score strategy has mean best observed yield 100.0 and mean top-yield recovery 0.6762 across 5 seeds. The random baseline has mean best observed yield 98.7972 with an approximate 95 percent CI half-width of 1.066. These are retrospective selection curves over known public records only.
+| Split | Random forest MAE | Random forest R2 | Readout |
+|---|---:|---:|---|
+| Random split | 8.9717 | 0.8266 | Easier shuffled-row benchmark |
+| Additive held out | 10.7537 | 0.7262 | Primary grouped split |
+| Base held out | 9.4873 | 0.7449 | Strong held-out component result |
+| Ligand held out | 10.7548 | 0.7665 | Strong held-out component result with shifted yield distribution |
+| Aryl halide held out | 15.4660 | 0.2555 | Weakest generalization case |
 
-The existing-record ranking table is a decision-support artifact. It organizes known public records by predicted yield, confidence/model-agreement diagnostics, domain warnings, and component diversity.
+### Uncertainty and Error Checks
+
+Error diagnostics are used to find weak regions of the model. Empirical coverage checks whether uncertainty intervals behave as expected, while uncertainty/error rank correlation checks whether larger uncertainty tends to align with larger errors.
+
+On the primary additive-held-out split, the empirical 90% interval coverage is 0.7978 and the uncertainty-error Spearman correlation is 0.6296. That makes the uncertainty estimates useful as review aids, not guarantees.
+
+![Uncertainty versus error](reports/figures/uncertainty_vs_error.png)
+
+### Active-Learning Simulation
+
+The active-learning simulation runs over existing public records. It tests whether a prioritization strategy would find high-yield records efficiently under a fixed review budget.
+
+It does not propose new reactions, generate chemistry, or provide synthesis instructions. Each selected item is an existing record from the public benchmark table.
+
+At the final simulated budget of 474 existing records, component-diverse high-score selection has the strongest top-yield recovery among the tested strategies. Best-yield curves partly saturate, so top-yield recovery and average selected yield are more informative than the single best-yield value.
+
+![Active-learning budget curve](reports/figures/active_learning_budget_curve.png)
 
 ## Scope and Limits
 
-This is a retrospective public-data benchmark. It does not propose new reactions, generate reactants, or claim prospective experimental validation.
+This is a public-data ML benchmark. It is not a wet-lab protocol and it is not a guarantee of experimental success.
 
-The current feature set is categorical. It does not use reaction SMILES, molecular structures, RDKit descriptors, Morgan fingerprints, graph neural networks, or mechanism-aware chemistry features.
+The project does not generate new chemistry, propose reactants, or produce recipe-style synthesis output. Existing-record ranking and active-learning simulation are over known public records only.
 
-Out-of-component validation carries the main interpretation. Random-split metrics should be read as interpolation evidence, not as proof of broad reaction generalization.
+The model uses component labels only. It does not use reaction SMILES, molecular structures, RDKit descriptors, Morgan fingerprints, graph neural networks, reaction fingerprints, or prospective lab validation.
 
-Existing-record ranking and active-learning curves are analysis tools over known records, not experimental recommendations.
+Random-split metrics are not the main evidence. The grouped and out-of-component validation results are the more important generalization checks.
 
 ## Reproduce
 
-Full workflow:
+Full public-data workflow:
 
 ```bash
 make setup
@@ -109,36 +120,28 @@ make report
 make test
 ```
 
-Small fixture path for fast checks:
+Small fixture path for smoke testing only:
 
 ```bash
 make reproduce-small
 make test
 ```
 
-The small fixture is synthetic and exists to test code paths.
-Fixture-mode outputs are smoke-test artifacts only and are not benchmark results.
-
-## Project Layout
-
-```text
-data/                 raw, processed, external fixtures, and dataset documentation
-src/reaction_yield_ml package code
-scripts/              executable workflow stages
-reports/              metrics, figures, reports, and run logs
-tests/                reproducibility and project-check tests
-docs/                 model and data cards
-notebooks/            walkthrough notebook
-```
+Fixture-mode outputs are synthetic code-path checks and are not public benchmark results.
 
 ## Useful Files
 
 - `reports/final_project_report.md`
+- `reports/model_quality_review_report.md`
 - `reports/model_benchmark_report.md`
 - `reports/validation_design_report.md`
 - `reports/uncertainty_calibration_report.md`
 - `reports/active_learning_report.md`
 - `reports/existing_record_ranking_report.md`
+- `reports/ranked_existing_reaction_records.csv`
+- `reports/figures/model_comparison_by_split.png`
+- `reports/figures/uncertainty_vs_error.png`
+- `reports/figures/active_learning_budget_curve.png`
 - `data/DATA_CARD.md`
 - `docs/model_card.md`
 - `docs/STRUCTURE_AWARE_REACTION_EXTENSION.md`

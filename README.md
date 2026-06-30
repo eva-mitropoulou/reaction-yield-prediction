@@ -19,21 +19,15 @@ The goal is to evaluate how far public HTE records can support yield prediction,
 
 ## Project Workflow
 
-This repository keeps the full retrospective benchmark in one reproducible place:
+This repository keeps the public Buchwald–Hartwig HTE yield benchmark in one reproducible workflow. It starts from the public yield workbook associated with the Ahneman, Dreher, and Doyle benchmark lineage, records the dataset source and limitations in a manifest and data card, and audits the table for row counts, missing values, duplicate records, component availability, target range, and component cardinalities.
 
-- selects the public Buchwald-Hartwig HTE yield workbook from the Ahneman, Dreher, and Doyle benchmark lineage
-- writes a dataset manifest and data card with source, access, target, component columns, and limitations
-- audits row counts, missing values, duplicate records, component availability, target range, and component cardinalities
-- cleans the reaction-yield table into model-ready records with numeric yield percentages and normalized component labels
-- builds categorical one-hot features from ligand, additive, base, and aryl-halide labels
-- creates random, grouped, and out-of-component validation splits
-- benchmarks mean, linear, random forest, and gradient boosting models
-- evaluates uncertainty/error behavior and empirical interval coverage
-- simulates budgeted selection strategies over existing public records
-- ranks existing dataset records with model score, uncertainty, agreement, and domain warnings
-- generates reports, metrics JSON files, figures, and lightweight reproducibility tests
+The raw reaction-yield table is then cleaned into model-ready records with numeric yield percentages and normalized ligand, additive, base, and aryl-halide labels. These component labels are converted into categorical one-hot features, so the benchmark evaluates what can be learned from reaction component labels rather than full molecular reaction structures.
 
-The selected workbook provides component labels. This is therefore a component-label benchmark.
+The workflow then creates random, grouped, and out-of-component validation splits and benchmarks mean, linear, random forest, and gradient boosting models. Model behavior is reviewed through prediction error, uncertainty/error checks, empirical interval coverage, and budgeted selection simulations over existing public records.
+
+The final outputs rank existing dataset records using model score, uncertainty, model agreement, and domain warnings. The repository also generates reports, metrics JSON files, figures, and lightweight reproducibility tests.
+
+The selected workbook provides component labels, so this is a component-label benchmark.
 
 ![Reaction yield prediction workflow](docs/assets/reaction_yield_workflow.png)
 

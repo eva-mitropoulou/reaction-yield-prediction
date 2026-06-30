@@ -90,12 +90,6 @@ At the final simulated budget of 474 existing records, component-diverse high-sc
 
 ![Active-learning budget curve](reports/figures/active_learning_budget_curve.png)
 
-## Scope and Limits
-
-This is a retrospective public-data ML benchmark. It does not generate new chemistry, provide synthesis instructions, or claim experimental success.
-
-The ranking and active-learning outputs review existing public records only. The current model uses component labels, not molecular structures, reaction SMILES, RDKit descriptors, Morgan fingerprints, graph neural networks, or prospective validation.
-
 ## Reproduce
 
 Full public-data workflow:
@@ -118,8 +112,6 @@ make reproduce-small
 make test
 ```
 
-Fixture-mode outputs are synthetic code-path checks and are not public benchmark results.
-
 ## Repository Layout
 
 ```text
@@ -130,7 +122,7 @@ docs/                         model/data cards, extension notes, assets, and wal
 Makefile                      reproducible command surface for the full workflow
 ```
 
-The command wrappers live in `src/reaction_yield_ml/workflows/` and are run through the Makefile. Lightweight quality checks live inside the package under `src/reaction_yield_ml/quality_checks/`. The walkthrough notebook lives in `docs/notebooks/` because it is documentation, not runtime code.
+The command wrappers live in `src/reaction_yield_ml/workflows/` and are run through the Makefile. Lightweight quality checks live inside the package under `src/reaction_yield_ml/quality_checks/`. The walkthrough notebook lives in `docs/notebooks/` because it is documentation.
 
 ## Useful Files
 

@@ -6,7 +6,7 @@
     "The table omits component labels to avoid recipe-style public output.",
     "Scores are decision-support diagnostics for retrospective analysis."
   ],
-  "median_model_agreement_std": 1.5044,
+  "median_model_agreement_std": 2.9629,
   "models_used": [
     "ridge",
     "random_forest",
@@ -20,6 +20,6 @@
     "uncertainty_or_confidence_included": true
   },
   "ranking_rows_match_clean_rows": true,
-  "row_count": 288,
-  "top_rank_predicted_yield_percent": 82.552
+  "row_count": 3955,
+  "top_rank_predicted_yield_percent": 85.7931
 }

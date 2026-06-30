@@ -14,23 +14,25 @@ Retrospective public-data benchmark for reaction-yield modeling and existing-rec
 ## Data And Features
 
 - Dataset: Buchwald-Hartwig HTE yield benchmark (Ahneman/Dreher/Doyle lineage)
-- Source mode: fixture
+- Source mode: public benchmark
+- Raw rows: 3955
+- Clean rows: 3955
 - Feature family: categorical one-hot component encoding
 - Valid splits: Grouped component split, Held-out additive split, Held-out base split, Held-out ligand split, Held-out aryl halide split, Random split
-- Primary selection split: Ligand held-out grouped split
+- Primary selection split: Additive held-out grouped split
 
 ## Model
 
-- Selected model: Elastic net
-- Selection split: Ligand held-out grouped split
+- Selected model: Random forest
+- Selection split: Additive held-out grouped split
 
 ## Metrics
 
-- MAE: 2.75
-- RMSE: 3.9076
-- R2: 0.8472
-- Spearman: 0.909
-- Top-10% enrichment: 6.9818
+- MAE: 10.7537
+- RMSE: 14.2371
+- R2: 0.7262
+- Spearman: 0.8597
+- Top-10% enrichment: 7.3333
 
 ## Interpretation Context
 

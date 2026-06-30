@@ -1,5 +1,5 @@
 {
-  "clean_row_count": 288,
+  "clean_row_count": 3955,
   "component_columns": [
     "component_ligand",
     "component_additive",
@@ -15,10 +15,10 @@
   ],
   "missing_structure_features": true,
   "missing_target_removed": 0,
-  "raw_row_count": 288,
-  "rows_before_filtering": 288,
-  "source_mode": "fixture",
+  "raw_row_count": 3955,
+  "rows_before_filtering": 3955,
+  "source_mode": "public_benchmark",
   "target_column": "yield_percent",
-  "yield_max": 89.0,
-  "yield_min": 8.0
+  "yield_max": 99.99999,
+  "yield_min": 0.0
 }

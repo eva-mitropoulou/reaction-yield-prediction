@@ -7,8 +7,8 @@ Buchwald-Hartwig HTE yield benchmark (Ahneman/Dreher/Doyle lineage)
 ## Source
 
 - Repository: rxn4chemistry/rxn_yields
-- Selected sheet: None
-- Source mode: fixture
+- Selected sheet: Plates1-3
+- Source mode: public_benchmark
 
 ## Citation
 
@@ -22,7 +22,7 @@ Redistribution note: review_source_license_before_redistributing_raw_workbook.
 
 ## Fields
 
-- Row count: 288
+- Row count: 3955
 - Raw columns: Ligand, Additive, Base, Aryl halide, Output
 - Target column: Output
 - Component columns: Ligand, Additive, Base, Aryl halide

@@ -48,25 +48,25 @@ The final workflow adds uncertainty diagnostics, a retrospective active-learning
 | Check | Result |
 |---|---:|
 | Dataset | Buchwald-Hartwig HTE yield benchmark |
-| Source mode | fixture |
-| Raw rows | 288 |
-| Clean rows | 288 |
+| Source mode | public_benchmark |
+| Raw rows | 3,955 |
+| Clean rows | 3,955 |
 | Feature family | categorical one-hot |
-| Feature count | 17 |
-| Selected model | onehot elastic net |
-| Primary split | Ligand held-out grouped split |
-| MAE | 2.75 |
-| RMSE | 3.9076 |
-| R2 | 0.8472 |
-| Spearman | 0.909 |
-| Top-10 percent enrichment | 6.9818 |
-| Primary split empirical coverage | 0.8438 |
-| Existing-record ranking rows | 288 |
-| Active-learning strategies | 6 |
+| Feature count | 44 |
+| Selected model | random forest |
+| Primary split | Additive held-out grouped split |
+| MAE | 10.7537 |
+| RMSE | 14.2371 |
+| R2 | 0.7262 |
+| Spearman | 0.8597 |
+| Top-10 percent enrichment | 7.3333 |
+| Primary split empirical 90 percent coverage | 0.7978 |
+| Existing-record ranking rows | 3,955 |
+| Active-learning strategies | 6 strategies, 5 seeds |
 
 ## Selected Model
 
-The selected model is `onehot_elastic_net` on the ligand held-out grouped split. In this dataset, the grouped split holds out ligand values, so it uses the same held-out group design as the held-out ligand split.
+The selected model is `random_forest` on the additive held-out grouped split. In this dataset, the grouped split holds out additive values, so it uses the same held-out group design as the held-out additive split.
 
 The model is intentionally simple because the available inputs are component labels. That makes the benchmark easy to audit: it can learn label-level patterns, but it cannot reason about molecular structure beyond what is implicit in the component names.
 
@@ -76,9 +76,11 @@ Random-split performance is useful, but it is not the main generalization story.
 
 The grouped and out-of-component splits are the important checks. They test whether the model can make useful predictions when one component family is held out from training.
 
-The uncertainty analysis is diagnostic. It uses random-forest ensemble variance and split conformal intervals to ask whether low-confidence predictions and empirical coverage behave sensibly. It should not be read as a guarantee of experimental uncertainty.
+The uncertainty analysis is diagnostic. It uses random-forest ensemble variance and split conformal intervals to ask whether low-confidence predictions and empirical coverage behave sensibly. On the primary additive-held-out split, the empirical 90 percent interval coverage is 0.7978. It should not be read as a guarantee of experimental uncertainty.
 
 The active-learning simulation is retrospective. It compares selection strategies over records that already exist in the public table, including random selection, highest predicted yield, uncertainty sampling, diversity-aware selection, score plus uncertainty, and diverse high-score.
+
+At the final simulated budget of 474 existing records, the component-diverse high-score strategy has mean best observed yield 100.0 and mean top-yield recovery 0.6762 across 5 seeds. The random baseline has mean best observed yield 98.7972 with an approximate 95 percent CI half-width of 1.066. These are retrospective selection curves over known public records only.
 
 The existing-record ranking table is a decision-support artifact. It organizes known public records by predicted yield, confidence/model-agreement diagnostics, domain warnings, and component diversity.
 
@@ -86,7 +88,7 @@ The existing-record ranking table is a decision-support artifact. It organizes k
 
 This is a retrospective public-data benchmark. It does not propose new reactions, generate reactants, or claim prospective experimental validation.
 
-The current feature set is categorical. It does not use reaction SMILES, molecular descriptors, fingerprints, graph features, or mechanism-aware chemistry features.
+The current feature set is categorical. It does not use reaction SMILES, molecular structures, RDKit descriptors, Morgan fingerprints, graph neural networks, or mechanism-aware chemistry features.
 
 Out-of-component validation carries the main interpretation. Random-split metrics should be read as interpolation evidence, not as proof of broad reaction generalization.
 
@@ -115,6 +117,7 @@ make test
 ```
 
 The small fixture is synthetic and exists to test code paths.
+Fixture-mode outputs are smoke-test artifacts only and are not benchmark results.
 
 ## Project Layout
 

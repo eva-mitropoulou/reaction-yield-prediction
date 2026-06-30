@@ -5,6 +5,7 @@
     "ci_workflow_exists": true,
     "dataset_source_and_license_documented": true,
     "existing_record_scope_documented": true,
+    "fixture_metrics_not_used_for_benchmark": true,
     "interpretation_context_section_exists": true,
     "mean_baseline_included": true,
     "metrics_saved": true,
@@ -14,13 +15,20 @@
     "random_and_grouped_validation_included_where_possible": true,
     "ranking_clearly_retrospective": true,
     "readme_exists": true,
-    "reproduce_small_works": true,
+    "real_public_workflow_completed": true,
     "tests_pass": true
   },
   "manual_review_notes": [
     "Manual source-license review is still recommended before redistributing the raw workbook.",
     "Keep public wording focused on the current categorical component-based benchmark."
   ],
-  "source_mode": "fixture",
+  "source_mode": "public_benchmark",
+  "source_modes": {
+    "active_learning": "public_benchmark",
+    "cleaning": "public_benchmark",
+    "dataset": "public_benchmark",
+    "final_summary": "public_benchmark",
+    "model": "public_benchmark"
+  },
   "status": "PASS"
 }

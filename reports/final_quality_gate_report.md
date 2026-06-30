@@ -10,7 +10,8 @@
 - active_learning_existing_records_only: True
 - ranking_clearly_retrospective: True
 - interpretation_context_section_exists: True
-- reproduce_small_works: True
+- real_public_workflow_completed: True
+- fixture_metrics_not_used_for_benchmark: True
 - tests_pass: True
 - readme_exists: True
 - ci_workflow_exists: True

@@ -215,6 +215,8 @@ Retrospective public-data benchmark for reaction-yield modeling and existing-rec
 
 - Dataset: {summary.get('dataset_name')}
 - Source mode: {str(summary.get('source_mode') or '').replace('_', ' ')}
+- Raw rows: {summary.get('raw_row_count')}
+- Clean rows: {summary.get('clean_row_count')}
 - Feature family: categorical one-hot component encoding
 - Valid splits: {', '.join(split_display_name(name) for name in summary.get('valid_splits') or [])}
 - Primary selection split: {summary.get('primary_selection_split_display') or split_display_name(summary.get('primary_selection_split') or '')}

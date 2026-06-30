@@ -13,9 +13,9 @@ Reaction-yield modeling helps evaluate whether machine-learning workflows can le
 ## 3. Dataset
 
 - Dataset: Buchwald-Hartwig HTE yield benchmark (Ahneman, Dreher, and Doyle lineage)
-- Source mode: fixture
-- Raw row count: 288
-- Clean row count: 288
+- Source mode: public benchmark
+- Raw row count: 3955
+- Clean row count: 3955
 - Target: reaction yield percentage
 - Components: ligand, additive, base, aryl halide labels
 
@@ -26,33 +26,33 @@ The pipeline standardizes the target as numeric percentage, normalizes component
 ## 5. Feature Engineering
 
 - Primary feature family: categorical one-hot component encoding
-- Feature count: 17
+- Feature count: 44
 - Molecular descriptors and fingerprints: skipped because the selected workbook provides labels but no component SMILES
 - Leakage audit: yield-derived columns are excluded from predictors
 
 ## 6. Validation Strategy
 
-Valid splits: Ligand held-out grouped split, Held-out additive split, Held-out base split, Held-out ligand split, Held-out aryl halide split, Random split
+Valid splits: Additive held-out grouped split, Held-out additive split, Held-out base split, Held-out ligand split, Held-out aryl halide split, Random split
 
 The benchmark includes random validation and grouped/out-of-component validation where possible. Out-of-component validation carries the main generalization interpretation.
 
 ## 7. Model Benchmark
 
-- Selected model: Elastic net
-- Primary selection split: Ligand held-out grouped split
-- MAE: 2.75
-- RMSE: 3.9076
-- R2: 0.8472
-- Spearman: 0.909
-- Top-10% enrichment: 6.9818
+- Selected model: Random forest
+- Primary selection split: Additive held-out grouped split
+- MAE: 10.7537
+- RMSE: 14.2371
+- R2: 0.7262
+- Spearman: 0.8597
+- Top-10% enrichment: 7.3333
 
-Validation note: In this dataset, the grouped split holds out ligand values, so it uses the same held-out group design as Held-out ligand split.
+Validation note: In this dataset, the grouped split holds out additive values, so it uses the same held-out group design as Held-out additive split.
 
 ## 8. Uncertainty And Calibration
 
 - Method: random-forest ensemble variance plus split conformal interval
-- Primary split coverage: 0.8438
-- Uncertainty-error Spearman: -0.4169
+- Primary split coverage: 0.7978
+- Uncertainty-error Spearman: 0.6296
 
 Uncertainty is evaluated against actual errors and low-confidence predictions are flagged.
 

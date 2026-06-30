@@ -1,89 +1,143 @@
 {
   "held_out_component_failure_summary": {
-    "group_column": "component_ligand",
-    "mae": 4.0137,
+    "group_column": "component_additive",
+    "mae": 10.7433,
     "notes": "Held-out component values are not listed.",
     "split_name": "grouped_high_cardinality_component",
-    "test_size": 96
+    "test_size": 900
   },
   "high_error_component_groups_anonymized": [
     {
-      "component_anonymized_id": "ligand_1b9bfc0adf",
+      "component_anonymized_id": "ligand_dee2800b80",
       "component_role": "component_ligand",
-      "count": 48,
-      "mae": 4.2457
+      "count": 225,
+      "mae": 11.3678
     },
     {
-      "component_anonymized_id": "ligand_27687fff1b",
+      "component_anonymized_id": "ligand_7508b2af59",
       "component_role": "component_ligand",
-      "count": 48,
-      "mae": 3.7817
+      "count": 225,
+      "mae": 11.1819
     },
     {
-      "component_anonymized_id": "additive_adaf159f93",
+      "component_anonymized_id": "ligand_b166d6f259",
+      "component_role": "component_ligand",
+      "count": 225,
+      "mae": 10.8587
+    },
+    {
+      "component_anonymized_id": "ligand_8ee9de8b39",
+      "component_role": "component_ligand",
+      "count": 225,
+      "mae": 9.5648
+    },
+    {
+      "component_anonymized_id": "additive_c10adb0cb7",
       "component_role": "component_additive",
-      "count": 24,
-      "mae": 4.1775
+      "count": 180,
+      "mae": 15.4049
     },
     {
-      "component_anonymized_id": "additive_3be2ea832c",
+      "component_anonymized_id": "additive_e86da383ac",
       "component_role": "component_additive",
-      "count": 24,
-      "mae": 3.9818
+      "count": 180,
+      "mae": 11.0892
     },
     {
-      "component_anonymized_id": "additive_24cdc67554",
+      "component_anonymized_id": "additive_a56a3c7b48",
       "component_role": "component_additive",
-      "count": 24,
-      "mae": 3.974
+      "count": 180,
+      "mae": 9.9469
     },
     {
-      "component_anonymized_id": "additive_814cddef66",
+      "component_anonymized_id": "additive_a25949efaf",
       "component_role": "component_additive",
-      "count": 24,
-      "mae": 3.9213
+      "count": 180,
+      "mae": 9.0024
     },
     {
-      "component_anonymized_id": "base_44405a1b05",
+      "component_anonymized_id": "additive_1f6bc9f8aa",
+      "component_role": "component_additive",
+      "count": 180,
+      "mae": 8.273
+    },
+    {
+      "component_anonymized_id": "base_d2cff0f2af",
       "component_role": "component_base",
-      "count": 32,
-      "mae": 4.5401
+      "count": 300,
+      "mae": 14.162
     },
     {
-      "component_anonymized_id": "base_f876085057",
+      "component_anonymized_id": "base_3154deb817",
       "component_role": "component_base",
-      "count": 32,
-      "mae": 3.8114
+      "count": 300,
+      "mae": 9.589
     },
     {
-      "component_anonymized_id": "base_6aa90d8a47",
+      "component_anonymized_id": "base_4335114ad9",
       "component_role": "component_base",
-      "count": 32,
-      "mae": 3.6895
+      "count": 300,
+      "mae": 8.4788
     },
     {
-      "component_anonymized_id": "aryl_halide_0e6b6b7626",
+      "component_anonymized_id": "aryl_halide_6099dcc868",
       "component_role": "component_aryl_halide",
-      "count": 24,
-      "mae": 5.3077
+      "count": 60,
+      "mae": 16.7485
     },
     {
-      "component_anonymized_id": "aryl_halide_314b0c0973",
+      "component_anonymized_id": "aryl_halide_d02f24d064",
       "component_role": "component_aryl_halide",
-      "count": 24,
-      "mae": 5.0212
+      "count": 60,
+      "mae": 16.0004
     },
     {
-      "component_anonymized_id": "aryl_halide_9a627600d4",
+      "component_anonymized_id": "aryl_halide_72944383cf",
       "component_role": "component_aryl_halide",
-      "count": 24,
-      "mae": 3.1936
+      "count": 60,
+      "mae": 15.3362
     },
     {
-      "component_anonymized_id": "aryl_halide_c7a6d18818",
+      "component_anonymized_id": "aryl_halide_cfe78b6b54",
       "component_role": "component_aryl_halide",
-      "count": 24,
-      "mae": 2.5323
+      "count": 60,
+      "mae": 14.7943
+    },
+    {
+      "component_anonymized_id": "aryl_halide_c7e36c2f52",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 14.6048
+    },
+    {
+      "component_anonymized_id": "aryl_halide_579111e038",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 14.1797
+    },
+    {
+      "component_anonymized_id": "aryl_halide_0298908ca6",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 13.5124
+    },
+    {
+      "component_anonymized_id": "aryl_halide_a64d99ce47",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 11.3984
+    },
+    {
+      "component_anonymized_id": "aryl_halide_32fe23ef54",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 9.8499
+    },
+    {
+      "component_anonymized_id": "aryl_halide_68c487de06",
+      "component_role": "component_aryl_halide",
+      "count": 60,
+      "mae": 9.4483
     }
   ],
   "limitations": [
@@ -94,23 +148,23 @@
   "permutation_importance_by_component_role": [
     {
       "component_role": "component_ligand",
-      "importance_mean": -0.0,
-      "importance_std": 0.0
+      "importance_mean": 0.3295,
+      "importance_std": 0.0275
     },
     {
       "component_role": "component_additive",
-      "importance_mean": 0.2718,
-      "importance_std": 0.0516
+      "importance_mean": 0.0,
+      "importance_std": 0.0
     },
     {
       "component_role": "component_base",
-      "importance_mean": 0.2364,
-      "importance_std": 0.0427
+      "importance_mean": 0.1705,
+      "importance_std": 0.0104
     },
     {
       "component_role": "component_aryl_halide",
-      "importance_mean": 0.6216,
-      "importance_std": 0.0869
+      "importance_mean": 1.1283,
+      "importance_std": 0.0388
     }
   ],
   "primary_split": "grouped_high_cardinality_component",
@@ -124,20 +178,20 @@
   },
   "tree_importance_by_component_role": [
     {
-      "component_role": "component_ligand",
-      "tree_importance": 0.7369
-    },
-    {
       "component_role": "component_aryl_halide",
-      "tree_importance": 0.1376
+      "tree_importance": 0.5474
     },
     {
       "component_role": "component_additive",
-      "tree_importance": 0.0671
+      "tree_importance": 0.2372
+    },
+    {
+      "component_role": "component_ligand",
+      "tree_importance": 0.1277
     },
     {
       "component_role": "component_base",
-      "tree_importance": 0.0584
+      "tree_importance": 0.0877
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "active_learning_seed_count": 3,
+  "active_learning_seed_count": 5,
   "active_learning_strategies": [
     "random_selection",
     "highest_predicted_yield",
@@ -16,24 +16,24 @@
     "Score plus uncertainty",
     "Diverse high-score"
   ],
-  "best_model": "onehot_elastic_net",
+  "best_model": "random_forest",
   "best_model_metrics": {
-    "mae": 2.75,
-    "r2": 0.8472,
-    "rmse": 3.9076,
-    "spearman": 0.909,
-    "top_10pct_enrichment": 6.9818
+    "mae": 10.7537,
+    "r2": 0.7262,
+    "rmse": 14.2371,
+    "spearman": 0.8597,
+    "top_10pct_enrichment": 7.3333
   },
-  "clean_row_count": 288,
+  "clean_row_count": 3955,
   "dataset_name": "Buchwald-Hartwig HTE yield benchmark (Ahneman/Dreher/Doyle lineage)",
-  "feature_count": 17,
+  "feature_count": 44,
   "feature_family": "categorical_onehot",
   "interpretability_primary_split": "grouped_high_cardinality_component",
   "primary_selection_split": "grouped_high_cardinality_component",
-  "primary_selection_split_display": "Ligand held-out grouped split",
-  "primary_split_equivalence_note": "In this dataset, the grouped split holds out ligand values, so it uses the same held-out group design as Held-out ligand split.",
-  "ranking_row_count": 288,
-  "raw_row_count": 288,
+  "primary_selection_split_display": "Additive held-out grouped split",
+  "primary_split_equivalence_note": "In this dataset, the grouped split holds out additive values, so it uses the same held-out group design as Held-out additive split.",
+  "ranking_row_count": 3955,
+  "raw_row_count": 3955,
   "safe_scope": [
     "retrospective public-data benchmark",
     "retrospective public-data benchmark",
@@ -41,50 +41,50 @@
     "component-label modeling",
     "existing-record ranking"
   ],
-  "source_mode": "fixture",
+  "source_mode": "public_benchmark",
   "uncertainty_primary": {
     "bins": [
       {
-        "bin": "(0.999, 20.0]",
-        "count": 20,
-        "mean_abs_error": 5.1747,
-        "mean_uncertainty": 12.8994
+        "bin": "(0.999, 180.8]",
+        "count": 180,
+        "mean_abs_error": 3.0892,
+        "mean_uncertainty": 3.0931
       },
       {
-        "bin": "(20.0, 39.0]",
-        "count": 19,
-        "mean_abs_error": 4.9675,
-        "mean_uncertainty": 13.2469
+        "bin": "(180.8, 360.6]",
+        "count": 180,
+        "mean_abs_error": 6.6543,
+        "mean_uncertainty": 5.5011
       },
       {
-        "bin": "(39.0, 58.0]",
-        "count": 19,
-        "mean_abs_error": 5.284,
-        "mean_uncertainty": 13.8636
+        "bin": "(360.6, 540.4]",
+        "count": 180,
+        "mean_abs_error": 10.9207,
+        "mean_uncertainty": 6.7735
       },
       {
-        "bin": "(58.0, 77.0]",
-        "count": 19,
-        "mean_abs_error": 2.7159,
-        "mean_uncertainty": 14.5487
+        "bin": "(540.4, 720.2]",
+        "count": 180,
+        "mean_abs_error": 13.0663,
+        "mean_uncertainty": 8.4413
       },
       {
-        "bin": "(77.0, 96.0]",
-        "count": 19,
-        "mean_abs_error": 1.8651,
-        "mean_uncertainty": 15.1194
+        "bin": "(720.2, 900.0]",
+        "count": 180,
+        "mean_abs_error": 19.9858,
+        "mean_uncertainty": 11.8254
       }
     ],
-    "empirical_coverage_90": 0.8438,
+    "empirical_coverage_90": 0.7978,
     "in_domain_mae": null,
-    "interval_half_width_90": 7.3136,
-    "low_confidence_fraction": 0.2083,
-    "mean_abs_error": 4.0137,
-    "mean_uncertainty": 13.9248,
+    "interval_half_width_90": 18.4343,
+    "low_confidence_fraction": 0.2,
+    "mean_abs_error": 10.7433,
+    "mean_uncertainty": 7.1269,
     "out_of_training_component_fraction": 1.0,
-    "out_of_training_component_mae": 4.0137,
-    "spearman_abs_error_vs_uncertainty": -0.4169,
-    "test_size": 96
+    "out_of_training_component_mae": 10.7433,
+    "spearman_abs_error_vs_uncertainty": 0.6296,
+    "test_size": 900
   },
   "valid_splits": [
     "grouped_high_cardinality_component",

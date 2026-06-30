@@ -3,8 +3,8 @@
 ## Summary
 
 - Feature family built: categorical baseline one-hot encoding.
-- Feature matrix rows: 288
-- Feature matrix columns: 17
+- Feature matrix rows: 3955
+- Feature matrix columns: 44
 - Component roles: Ligand, Additive, Base, Aryl Halide
 
 ## Optional Structure Features

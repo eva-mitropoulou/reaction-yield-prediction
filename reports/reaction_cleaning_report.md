@@ -2,9 +2,9 @@
 
 ## Summary
 
-- Source mode: fixture
-- Raw row count: 288
-- Clean row count: 288
+- Source mode: public_benchmark
+- Raw row count: 3955
+- Clean row count: 3955
 - Missing target rows removed: 0
 - Impossible yield rows removed: 0
 - Duplicate records removed: 0

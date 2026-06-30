@@ -122,24 +122,3 @@ Makefile                      reproducible command surface for the full workflow
 ```
 
 The command wrappers live in `src/reaction_yield_ml/workflows/` and are run through the Makefile. Lightweight quality checks live inside the package under `src/reaction_yield_ml/quality_checks/`. The walkthrough notebook lives in `docs/notebooks/` because it is documentation.
-
-## Useful Files
-
-- `reports/final_project_report.md`
-- `reports/model_quality_review_report.md`
-- `reports/model_benchmark_report.md`
-- `reports/validation_design_report.md`
-- `reports/uncertainty_calibration_report.md`
-- `reports/active_learning_report.md`
-- `reports/existing_record_ranking_report.md`
-- `reports/ranked_existing_reaction_records.csv`
-- `reports/figures/model_comparison_by_split.png`
-- `reports/figures/uncertainty_vs_error.png`
-- `reports/figures/active_learning_budget_curve.png`
-- `docs/assets/reaction_yield_workflow.png`
-- `data/DATA_CARD.md`
-- `docs/model_card.md`
-- `docs/STRUCTURE_AWARE_REACTION_EXTENSION.md`
-- `docs/notebooks/reaction_yield_ml_walkthrough.ipynb`
-
-Machine-readable summaries are under `reports/metrics/`.

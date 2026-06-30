@@ -23,6 +23,6 @@ dependencies = [
 where = ["src"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["src/reaction_yield_ml/quality_checks"]
 pythonpath = ["src"]
 addopts = "-q"

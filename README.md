@@ -135,11 +135,10 @@ src/reaction_yield_ml/        package code, models, validation, reporting, and w
 data/                         dataset cards, public-source manifest, fixture, and generated intermediates
 reports/                      generated reports, metrics, figures, and existing-record ranking output
 docs/                         model/data cards, extension notes, assets, and walkthrough notebook
-tests/                        lightweight reproducibility and quality-gate tests
 Makefile                      reproducible command surface for the full workflow
 ```
 
-The command wrappers live in `src/reaction_yield_ml/workflows/` and are run through the Makefile. The walkthrough notebook lives in `docs/notebooks/` because it is documentation, not runtime code.
+The command wrappers live in `src/reaction_yield_ml/workflows/` and are run through the Makefile. Lightweight quality checks live inside the package under `src/reaction_yield_ml/quality_checks/`. The walkthrough notebook lives in `docs/notebooks/` because it is documentation, not runtime code.
 
 ## Useful Files
 

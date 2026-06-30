@@ -32,7 +32,7 @@ This repository keeps the full retrospective benchmark in one reproducible place
 - ranks existing dataset records with model score, uncertainty, agreement, and domain warnings
 - generates reports, metrics JSON files, figures, and lightweight reproducibility tests
 
-The selected workbook provides component labels, not component structures. This is therefore a component-label benchmark, not a full molecular reaction representation.
+The selected workbook provides component labels. This is therefore a component-label benchmark.
 
 ## Model Benchmarking and Selection
 
@@ -81,7 +81,7 @@ The selected random forest performs well on the additive, base, and ligand held-
 
 Error diagnostics are used to find weak regions of the model. Empirical coverage checks whether uncertainty intervals behave as expected, while uncertainty/error rank correlation checks whether larger uncertainty tends to align with larger errors.
 
-On the primary additive-held-out split, the empirical 90% interval coverage is 0.7978 and the uncertainty-error Spearman correlation is 0.6296. That makes the uncertainty estimates useful as review aids, not guarantees.
+On the primary additive-held-out split, the empirical 90% interval coverage is 0.7978 and the uncertainty-error Spearman correlation is 0.6296. That makes the uncertainty estimates useful as review aids.
 
 ![Uncertainty versus error](reports/figures/uncertainty_vs_error.png)
 
@@ -89,21 +89,11 @@ On the primary additive-held-out split, the empirical 90% interval coverage is 0
 
 The active-learning simulation runs over existing public records. It tests whether a prioritization strategy would find high-yield records efficiently under a fixed review budget.
 
-It does not propose new reactions, generate chemistry, or provide synthesis instructions. Each selected item is an existing record from the public benchmark table.
+Each selected item is an existing record from the public benchmark table.
 
 At the final simulated budget of 474 existing records, component-diverse high-score selection has the strongest top-yield recovery among the tested strategies. Best-yield curves partly saturate, so top-yield recovery and average selected yield are more informative than the single best-yield value.
 
 ![Active-learning budget curve](reports/figures/active_learning_budget_curve.png)
-
-## Scope and Limits
-
-This is a public-data ML benchmark. It is not a wet-lab protocol and it is not a guarantee of experimental success.
-
-The project does not generate new chemistry, propose reactants, or produce recipe-style synthesis output. Existing-record ranking and active-learning simulation are over known public records only.
-
-The model uses component labels only. It does not use reaction SMILES, molecular structures, RDKit descriptors, Morgan fingerprints, graph neural networks, reaction fingerprints, or prospective lab validation.
-
-Random-split metrics are not the main evidence. The grouped and out-of-component validation results are the more important generalization checks.
 
 ## Reproduce
 
@@ -126,8 +116,6 @@ Small fixture path for smoke testing only:
 make reproduce-small
 make test
 ```
-
-Fixture-mode outputs are synthetic code-path checks and are not public benchmark results.
 
 ## Useful Files
 

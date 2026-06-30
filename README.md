@@ -19,6 +19,8 @@ The goal is to evaluate how far public HTE records can support yield prediction,
 
 ## Project Workflow
 
+![Reaction yield prediction workflow](docs/assets/reaction_yield_workflow.png)
+
 This repository keeps the public Buchwald–Hartwig HTE yield benchmark in one reproducible workflow. It starts from the public yield workbook associated with the Ahneman, Dreher, and Doyle benchmark lineage, records the dataset source and limitations in a manifest and data card, and audits the table for row counts, missing values, duplicate records, component availability, target range, and component cardinalities.
 
 The raw reaction-yield table is then cleaned into model-ready records with numeric yield percentages and normalized ligand, additive, base, and aryl-halide labels. These component labels are converted into categorical one-hot features, so the benchmark evaluates what can be learned from reaction component labels rather than full molecular reaction structures.
@@ -28,8 +30,6 @@ The workflow then creates random, grouped, and out-of-component validation split
 The final outputs rank existing dataset records using model score, uncertainty, model agreement, and domain warnings. The repository also generates reports, metrics JSON files, figures, and lightweight reproducibility tests.
 
 The selected workbook provides component labels, so this is a component-label benchmark.
-
-![Reaction yield prediction workflow](docs/assets/reaction_yield_workflow.png)
 
 ## Model Benchmarking and Selection
 

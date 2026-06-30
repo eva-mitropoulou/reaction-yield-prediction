@@ -14,6 +14,7 @@ The goal is to evaluate how far public HTE records can support yield prediction,
   - [Active-Learning Simulation](#active-learning-simulation)
 - [Scope and Limits](#scope-and-limits)
 - [Reproduce](#reproduce)
+- [Repository Layout](#repository-layout)
 - [Useful Files](#useful-files)
 
 ## Project Workflow
@@ -33,6 +34,8 @@ This repository keeps the full retrospective benchmark in one reproducible place
 - generates reports, metrics JSON files, figures, and lightweight reproducibility tests
 
 The selected workbook provides component labels. This is therefore a component-label benchmark.
+
+![Reaction yield prediction workflow](docs/assets/reaction_yield_workflow.png)
 
 ## Model Benchmarking and Selection
 
@@ -95,6 +98,12 @@ At the final simulated budget of 474 existing records, component-diverse high-sc
 
 ![Active-learning budget curve](reports/figures/active_learning_budget_curve.png)
 
+## Scope and Limits
+
+This is a retrospective public-data ML benchmark. It does not generate new chemistry, provide synthesis instructions, or claim experimental success.
+
+The ranking and active-learning outputs review existing public records only. The current model uses component labels, not molecular structures, reaction SMILES, RDKit descriptors, Morgan fingerprints, graph neural networks, or prospective validation.
+
 ## Reproduce
 
 Full public-data workflow:
@@ -117,6 +126,21 @@ make reproduce-small
 make test
 ```
 
+Fixture-mode outputs are synthetic code-path checks and are not public benchmark results.
+
+## Repository Layout
+
+```text
+src/reaction_yield_ml/        package code, models, validation, reporting, and workflow entry points
+data/                         dataset cards, public-source manifest, fixture, and generated intermediates
+reports/                      generated reports, metrics, figures, and existing-record ranking output
+docs/                         model/data cards, extension notes, assets, and walkthrough notebook
+tests/                        lightweight reproducibility and quality-gate tests
+Makefile                      reproducible command surface for the full workflow
+```
+
+The command wrappers live in `src/reaction_yield_ml/workflows/` and are run through the Makefile. The walkthrough notebook lives in `docs/notebooks/` because it is documentation, not runtime code.
+
 ## Useful Files
 
 - `reports/final_project_report.md`
@@ -130,8 +154,10 @@ make test
 - `reports/figures/model_comparison_by_split.png`
 - `reports/figures/uncertainty_vs_error.png`
 - `reports/figures/active_learning_budget_curve.png`
+- `docs/assets/reaction_yield_workflow.png`
 - `data/DATA_CARD.md`
 - `docs/model_card.md`
 - `docs/STRUCTURE_AWARE_REACTION_EXTENSION.md`
+- `docs/notebooks/reaction_yield_ml_walkthrough.ipynb`
 
 Machine-readable summaries are under `reports/metrics/`.

@@ -4,12 +4,10 @@ on:
   push:
     paths:
       - "src/**"
-      - "scripts/**"
       - "tests/**"
       - "data/**"
       - "reports/**"
       - "docs/**"
-      - "notebooks/**"
       - "Makefile"
       - "pyproject.toml"
       - "requirements.txt"
@@ -17,12 +15,10 @@ on:
   pull_request:
     paths:
       - "src/**"
-      - "scripts/**"
       - "tests/**"
       - "data/**"
       - "reports/**"
       - "docs/**"
-      - "notebooks/**"
       - "Makefile"
       - "pyproject.toml"
       - "requirements.txt"

@@ -15,42 +15,42 @@ setup:
 	fi
 
 data:
-	$(RUN_PYTHON) scripts/00_select_dataset.py
-	$(RUN_PYTHON) scripts/01_audit_dataset.py
-	$(RUN_PYTHON) scripts/02_clean_reactions.py
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.select_dataset
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.audit_dataset
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.clean_reactions
 
 features:
-	$(RUN_PYTHON) scripts/03_build_features.py
-	$(RUN_PYTHON) scripts/04_make_splits.py
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.build_features
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.make_splits
 
 train:
-	$(RUN_PYTHON) scripts/05_train_and_evaluate.py
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.train_and_evaluate
 
 evaluate:
-	$(RUN_PYTHON) scripts/06_uncertainty_calibration.py
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.uncertainty_calibration
 
 active-learning:
-	$(RUN_PYTHON) scripts/07_active_learning_simulation.py
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.active_learning_simulation
 
 report:
-	$(RUN_PYTHON) scripts/08_rank_existing_records.py
-	$(RUN_PYTHON) scripts/09_interpret_models.py
-	$(RUN_PYTHON) scripts/10_build_final_report.py
-	$(RUN_PYTHON) scripts/11_final_quality_gate.py
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.rank_existing_records
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.interpret_models
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.build_final_report
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.final_quality_gate
 
 reproduce-small:
-	$(RUN_PYTHON) scripts/00_select_dataset.py --fixture
-	$(RUN_PYTHON) scripts/01_audit_dataset.py --fixture
-	$(RUN_PYTHON) scripts/02_clean_reactions.py --fixture
-	$(RUN_PYTHON) scripts/03_build_features.py
-	$(RUN_PYTHON) scripts/04_make_splits.py
-	$(RUN_PYTHON) scripts/05_train_and_evaluate.py
-	$(RUN_PYTHON) scripts/06_uncertainty_calibration.py
-	$(RUN_PYTHON) scripts/07_active_learning_simulation.py
-	$(RUN_PYTHON) scripts/08_rank_existing_records.py
-	$(RUN_PYTHON) scripts/09_interpret_models.py
-	$(RUN_PYTHON) scripts/10_build_final_report.py
-	$(RUN_PYTHON) scripts/11_final_quality_gate.py
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.select_dataset --fixture
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.audit_dataset --fixture
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.clean_reactions --fixture
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.build_features
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.make_splits
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.train_and_evaluate
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.uncertainty_calibration
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.active_learning_simulation
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.rank_existing_records
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.interpret_models
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.build_final_report
+	$(RUN_PYTHON) -m reaction_yield_ml.workflows.final_quality_gate
 
 test:
 	$(RUN_PYTHON) -m pytest

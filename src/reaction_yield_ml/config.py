@@ -11,7 +11,7 @@ REPORTS_DIR = PROJECT_ROOT / "reports"
 METRICS_DIR = REPORTS_DIR / "metrics"
 FIGURES_DIR = REPORTS_DIR / "figures"
 DOCS_DIR = PROJECT_ROOT / "docs"
-NOTEBOOKS_DIR = PROJECT_ROOT / "notebooks"
+NOTEBOOKS_DIR = DOCS_DIR / "notebooks"
 
 DATASET_NAME = "Buchwald-Hartwig HTE yield benchmark (Ahneman/Dreher/Doyle lineage)"
 DATASET_SOURCE = "https://github.com/rxn4chemistry/rxn_yields"

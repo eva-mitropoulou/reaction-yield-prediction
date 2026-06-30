@@ -29,8 +29,6 @@ The workflow then creates random, grouped, and out-of-component validation split
 
 The final outputs rank existing dataset records using model score, uncertainty, model agreement, and domain warnings. The repository also generates reports, metrics JSON files, figures, and lightweight reproducibility tests.
 
-The selected workbook provides component labels, so this is a component-label benchmark.
-
 ## Model Benchmarking and Selection
 
 The benchmark compares a mean predictor, one-hot linear baselines, random forest, and gradient boosting. The generated reports select the random forest on the additive-held-out grouped split as the primary practical baseline.

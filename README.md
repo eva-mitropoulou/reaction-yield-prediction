@@ -12,7 +12,6 @@ The goal is to evaluate how far public HTE records can support yield prediction,
   - [Out-of-Component Validation](#out-of-component-validation)
   - [Uncertainty and Error Checks](#uncertainty-and-error-checks)
   - [Active-Learning Simulation](#active-learning-simulation)
-- [Scope and Limits](#scope-and-limits)
 - [Reproduce](#reproduce)
 - [Repository Layout](#repository-layout)
 - [Useful Files](#useful-files)

@@ -1,6 +1,6 @@
 # Reaction Yield Prediction from Public HTE Data
 
-This project builds a reaction-yield ML workflow using public Buchwald-Hartwig high-throughput experimentation records. I curated reaction component labels, cleaned yield values, built categorical one-hot features, trained baseline and tree-based models, and evaluated whether the models still work when the validation split holds out reaction components instead of only shuffling rows.
+This project builds a reaction-yield ML workflow using public Buchwald-Hartwig high-throughput experimentation records. I curated reaction component labels, cleaned yield values, built categorical one-hot features, trained baseline and tree-based models, and then tested whether the models still work when the validation split holds out reaction components instead of only shuffling rows.
 
 The goal is to understand how much signal is available from component labels alone. This version is a categorical component-based benchmark: it uses ligand, additive, base, and aryl-halide labels, not structure-aware reaction descriptors. Structure-aware reaction features are documented as a future extension.
 
@@ -33,13 +33,13 @@ The workflow is supported by several validation, benchmarking, and decision-supp
 
 ## Project Workflow
 
-The workflow starts from a public Buchwald-Hartwig HTE yield table. The target is reaction yield percentage. The available component fields are ligand, additive, base, and aryl-halide labels.
+The workflow starts from a public Buchwald-Hartwig HTE yield table. The target is reaction yield percentage, and the available component fields are ligand, additive, base, and aryl-halide labels.
 
 Cleaning keeps the task intentionally narrow. The pipeline standardizes the target as a numeric percentage, normalizes component labels as strings, removes impossible target values, and removes exact duplicate component-target records.
 
-Feature engineering is categorical by design. The primary feature family is one-hot encoding over reaction component labels. Molecular descriptors and fingerprints are skipped in this version because the selected workbook provides component labels but not component SMILES.
+Feature engineering is categorical by design. The primary feature family is one-hot encoding over reaction component labels. Molecular descriptors and fingerprints are skipped in this version because the selected workbook provides component labels but not component SMILES, so the benchmark stays honest about what information the model can actually see.
 
-The validation design is the main point of the project. A random split tests interpolation across shuffled records. Grouped and out-of-component splits ask a harder question: whether a model can generalize when a ligand, additive, base, or aryl halide is held out.
+The validation design is the main point of the project. A random split tests interpolation across shuffled records. Grouped and out-of-component splits ask a harder and more useful question: whether a model can still make reasonable predictions when a ligand, additive, base, or aryl halide is held out.
 
 The final workflow adds uncertainty diagnostics, a retrospective active-learning simulation, and an existing-record ranking table. These outputs are used to study model behavior over records already in the dataset, not to claim new experimental outcomes.
 
@@ -68,7 +68,7 @@ The final workflow adds uncertainty diagnostics, a retrospective active-learning
 
 The selected model is `onehot_elastic_net` on the ligand held-out grouped split. In this dataset, the grouped split holds out ligand values, so it uses the same held-out group design as the held-out ligand split.
 
-The model is intentionally simple because the available inputs are component labels. That makes the benchmark easy to audit: the model can learn label-level patterns, but it cannot reason about molecular structure beyond what is implicit in the component names.
+The model is intentionally simple because the available inputs are component labels. That makes the benchmark easy to audit: it can learn label-level patterns, but it cannot reason about molecular structure beyond what is implicit in the component names.
 
 ## How To Read This
 
